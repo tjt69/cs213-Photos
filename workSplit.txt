@@ -1,0 +1,15 @@
+WINDOW TO BE IMPLE.	TEAM MEMBER
+
+albums.fxml		Justin Valeroso
+Add_Album.fxml		Justin Valeroso
+Add_Photo.fxml		Travis Thiel
+Add_Tag.fxml		Justin Valeroso
+Add_User.fxml		Justin Valeroso
+Copy_Photo.fxml		Justin Valeroso
+Edit_Album.fxml		Justin Valeroso
+Move_Photo.fxml		Travis Thiel
+Search_Photos.fxml	Justin Valeroso
+Manage_Users.fxml	Travis Thiel
+deletePrompt.fxml	Travis Thiel
+login.fxml		Travis Thiel
+Photos.fxml		Travis Thiel
