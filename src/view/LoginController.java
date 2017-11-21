@@ -44,7 +44,7 @@ public class LoginController extends Controller{
 					accountType = tk.nextToken();
 					if (accountType.equals("user")) {
 						StageManager stageManager = new StageManager();
-						stageManager.loadScene(primaryStage, "");
+						stageManager.loadScene(primaryStage, "Albums");
 					}
 					else if (accountType.equals("admin")) {
 						StageManager stageManager = new StageManager();
