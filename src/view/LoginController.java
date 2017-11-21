@@ -1,7 +1,7 @@
 package view;
 
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,12 +11,15 @@ import javafx.stage.Stage;
 
 import util.Controller;
 import util.StageManager;
+import util.User;
 
 public class LoginController extends Controller{
 	@FXML Button signInButton;
 	@FXML Button quitButton;
 	@FXML TextField userNameTextField;
 	@FXML TextField passwordTextField;
+	
+	private ArrayList<User> users;
 	
 	public void start(Stage primaryStage) {
 		// This is so LoginConroller knows what the primaryStage is
@@ -25,40 +28,38 @@ public class LoginController extends Controller{
 	}
 	
 	// If 'signIn' is pressed, check the sign in to see if the information is valid
-	public void checkSignIn (ActionEvent e) throws IOException {
+	public void checkSignIn (ActionEvent e)  {
 		// Get username/password combo from TextFields
 		String userName = userNameTextField.getText();
 		String password = passwordTextField.getText();
 		
 		// Parse through user data in "accounts.txt" and see if there are any matches
-		String line = "";
-		String storedUserName, storedPassword, accountType;
+		User storedUser;
 		try {
-			FileReader fileReader = new FileReader("accounts.txt");
-			BufferedReader br = new BufferedReader(fileReader);
-			while ((line = br.readLine()) != null) {
-				StringTokenizer tk = new StringTokenizer(line);	
-				storedUserName = tk.nextToken();
-				storedPassword = tk.nextToken();
-				if (storedUserName.equals(userName) && storedPassword.equals(password)) {
-					accountType = tk.nextToken();
-					if (accountType.equals("user")) {
+			FileInputStream fileIn = new FileInputStream("accounts.dat");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			users = (ArrayList<User>) in.readObject();
+			for (User user : users) {
+				if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
+					if (user.getAccountType().equals("user")) {
 						StageManager stageManager = new StageManager();
 						stageManager.loadScene(primaryStage, "");
+						break;
 					}
-					else if (accountType.equals("admin")) {
+					else if (user.getAccountType().equals("admin")) {
 						StageManager stageManager = new StageManager();
 						stageManager.loadScene(primaryStage, "Manage_Users");
+						break;
 					}
 				}
 			}
-			br.close();
+			in.close();
 		}
-		catch (FileNotFoundException ex) {
-			System.out.println("File not found.");
+		catch (ClassNotFoundException ex) {
+			System.out.println("Class not found.");
 		}
 		catch (IOException ex) {
-			System.out.println("Error reading file.");
+			System.out.println(ex);
 		}
 	}
 }

@@ -10,7 +10,7 @@
 
 <Pane maxHeight="-Infinity" fx:controller="view.LoginController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TitledPane fx:id="login" animated="false" prefHeight="279.0" prefWidth="385.0" text="                    LOGIN" textAlignment="CENTER">
+      <TitledPane fx:id="login" collapsible="false" animated="false" prefHeight="279.0" prefWidth="385.0" text="      			              LOGIN" textAlignment="CENTER">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="372.0">
                <children>

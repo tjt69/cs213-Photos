@@ -3,10 +3,15 @@ package view;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import javafx.collections.FXCollections;
@@ -14,16 +19,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-
+import javafx.util.Callback;
 import util.Controller;
 import util.StageManager;
+import util.User;
 
 public class ManageUsersController extends Controller{
-	private ObservableList<String> users;
+	private ObservableList<User> users;
 	
-	@FXML ListView<String> usersListView;
+	@FXML ListView<User> usersListView;
 	@FXML Button addButton;
 	@FXML Button deleteButton;
 	@FXML Button logOutButton;
@@ -45,7 +52,7 @@ public class ManageUsersController extends Controller{
 	
 	public void deleteUser (ActionEvent e) throws IOException {
 		// Get the selected user's name and check if anything was selected
-		String selectedUser = usersListView.getSelectionModel().getSelectedItem();
+		User selectedUser = usersListView.getSelectionModel().getSelectedItem();
 		if (selectedUser == null) {
 			System.out.println("nothing was selected.");
 			return;
@@ -59,34 +66,30 @@ public class ManageUsersController extends Controller{
 		// This mimics "deleting" a user from the accounts.txt file.				
 		if (stageManager.getConfirmation()) {
 			try {
-				String line = "";
-				String userName;
+				// Deserialize storedUsers data
+				FileInputStream fileIn = new FileInputStream("accounts.dat");
+				ObjectInputStream in = new ObjectInputStream(fileIn);
+				ArrayList<User> storedUsers = (ArrayList<User>) in.readObject();
+				in.close();
+				fileIn.close();
 				
-				File currentFile = new File("accounts.txt");
-				File tempFile = new File("temp.txt");
-				
-				FileReader fileReader = new FileReader(currentFile);
-				FileWriter fileWriter = new FileWriter(tempFile);
-				
-				BufferedReader br = new BufferedReader(fileReader);
-				BufferedWriter bw = new BufferedWriter(fileWriter);
-				
-				while ((line = br.readLine()) != null) {
-					StringTokenizer tk = new StringTokenizer(line);	
-					userName = tk.nextToken();
-					if (!selectedUser.equals(userName)) {
-						bw.write(line + System.getProperty("line.separator"));
+				// Traverse storedUsers and remove user that has same credentials as selectedUser
+				for (User user : storedUsers) {
+					if (user.getUserName().equals(selectedUser.getUserName()) &&
+						user.getPassword().equals(selectedUser.getPassword())) {
+						storedUsers.remove(user);
 					}
 				}
 				
-				br.close();
-				bw.close();
-				
-				currentFile.delete();
-				tempFile.renameTo(new File("accounts.txt"));
+				// Serialize updated storedUsers
+				FileOutputStream fileOut = new FileOutputStream("accounts.dat");
+				ObjectOutputStream out = new ObjectOutputStream(fileOut);
+				out.writeObject(storedUsers);
+				out.close();
+				fileOut.close();
 			}
-			catch (FileNotFoundException ex) {
-				System.out.println("File not found.");
+			catch (ClassNotFoundException ex) {
+				System.out.println("Class not found.");
 			}
 			catch (IOException ex) {
 				System.out.println("Error reading file.");
@@ -105,34 +108,51 @@ public class ManageUsersController extends Controller{
 	// Helper method to display the list of users
 	private void displayUsers () {
 		// Create a new ObserableList
-		users = FXCollections.observableArrayList();; 
-		
+		users = FXCollections.observableArrayList();
+
 		// Read "accounts.txt" file and add users to ObservableList
-		String line = "";
-		String userName, accountType;
 		try {
-			FileReader fileReader = new FileReader("accounts.txt");
-			BufferedReader br = new BufferedReader(fileReader);
-			while ((line = br.readLine()) != null) {
-				StringTokenizer tk = new StringTokenizer(line);	
-				userName = tk.nextToken();
-				tk.nextToken();
-				accountType = tk.nextToken();
-				if (accountType.equals("user")) {
-					users.add(userName);
+			FileInputStream fileIn = new FileInputStream("accounts.dat");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			ArrayList<User> storedUsers = (ArrayList<User>) in.readObject();
+			for (User user : storedUsers) {
+				if (user.getAccountType().equals("user")) {
+					users.add(user);
 				}
-				
 			}
-			br.close();
+			in.close();
 		}
 		catch (FileNotFoundException ex) {
 			System.out.println("File not found.");
 		}
 		catch (IOException ex) {
 			System.out.println("Error reading file.");
+		} 
+		catch (ClassNotFoundException e) {
+			System.out.println("Class not found.");
 		}
 		
 		// Display ObservableList users in usersListView
 		usersListView.setItems(users);
+		usersListView.setCellFactory(new Callback<ListView<User>, ListCell<User>>(){  
+            @Override
+            public ListCell<User> call(ListView<User> p) {                 
+                ListCell<User> cell = new ListCell<User>(){ 
+                    @Override
+                    protected void updateItem(User user, boolean bln) {
+                        super.updateItem(user, bln);
+                        if (user != null) {
+                            setText(user.getUserName());
+                        }
+                        else {
+                        	setText(null);
+                        }
+                    }
+ 
+                };
+                 
+                return cell;
+            }
+        });
 	}
 }
