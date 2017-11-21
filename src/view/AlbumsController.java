@@ -58,18 +58,103 @@ public class AlbumsController extends Controller implements Serializable{
 	
 	public void start(Stage primaryStage,User user) {
 		this.currUser = user;
-		obsList = FXCollections.observableArrayList();
-		albumsListView.setItems(obsList);
-		albumsListView.getSelectionModel().select(0);
+		this.primaryStage = primaryStage;
+		displayAlbums();
+	}
+
+	public void addAlbum (ActionEvent e) throws IOException {
+		// Open a second window that prompts the user for new album's credentials
+		StageManager stageManager = new StageManager();
+		stageManager.getStage("Add_Album",currUser).showAndWait();
 		
-		if(obsList.isEmpty()) {
-			Album stock = new Album("Stock");
-			System.out.println(stock.getName());
-			currUser.addAlbums(stock);
-			obsList.add(stock);
+		displayAlbums();
+	}
+	
+	public void deleteAlbum(ActionEvent e) throws IOException{
+		// Get the selected album's name and check if anything was selected
+		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
+		if (selectedAlbum == null) {
+			System.out.println("nothing was selected.");
+			return;
+		}
+				
+		// Ask the user if they really want to delete the selected user
+		StageManager stageManager = new StageManager();
+				
+		// If user confirms, copy the entire file into a temp file
+		// but don't copy the line that matches the selectedUser.
+		// This mimics "deleting" a user from the accounts.txt file.				
+		if (stageManager.getConfirmation()) {
+			try {
+				// Deserialize storedUsers data
+				FileInputStream fileIn = new FileInputStream("accounts.dat");
+				ObjectInputStream in = new ObjectInputStream(fileIn);
+				ArrayList<User> storedUsers = (ArrayList<User>) in.readObject();
+				in.close();
+				fileIn.close();
+						
+				// Traverse storedUsers and remove selected album
+				for (User u : storedUsers) {
+					System.out.println("User: "+u.getUserName()+" Curr: "+currUser.getUserName());
+					if (currUser.equals(u)) {
+						currUser.deleteAlbum(selectedAlbum);
+						storedUsers.set(storedUsers.indexOf(u), currUser);
+					}
+				}
+						
+				// Serialize updated storedUsers
+				FileOutputStream fileOut = new FileOutputStream("accounts.dat");
+				ObjectOutputStream out = new ObjectOutputStream(fileOut);
+				out.writeObject(storedUsers);
+				out.close();
+				fileOut.close();
+			}
+			catch (ClassNotFoundException ex) {
+				System.out.println("Class not found.");
+			}
+			catch (IOException ex) {
+				System.out.println("Error reading file.");
+			}
 		}
 		
+		displayAlbums();
+
+	}
+	
+	public void editAlbum(ActionEvent e) throws IOException{
+		
+	}
+	
+	public void searchAlbum(ActionEvent e) throws IOException{
+		
+	}
+	
+	public void logOut (ActionEvent e) throws IOException {
+		StageManager stageManager = new StageManager();
+		stageManager.loadScene(primaryStage, "Login");
+	}
+	
+	private void displayAlbums () {
+		obsList = FXCollections.observableArrayList();
+		
+//		if(obsList.isEmpty()) {
+//			Album stock = new Album("Stock");
+//			System.out.println(stock.getName());
+//			currUser.addAlbums(stock);
+//			obsList.add(stock);
+//		}
+		
+		// Add all of user's albums to obsList
+		for (Album album : currUser.getAlbums()) {
+			obsList.add(album);
+		}
+		
+		// Sort obsList
 		FXCollections.sort(obsList, AlbumComparator);
+		
+		// Display currUser's albums
+		albumsListView.setItems(obsList);
+		albumsListView.getSelectionModel().select(0);
 		
 		albumsListView
       	.getSelectionModel()
@@ -88,12 +173,8 @@ public class AlbumsController extends Controller implements Serializable{
     	    		dateRange.setText("Date Range: \t"+newValue.getOldestDateString()+" - "+newValue.getNewestDateString());
     	    	}
     	    }
-    	});
-      
-      
-           		
-               
-      
+    	});         		
+		
 		albumsListView.setCellFactory(new Callback<ListView<Album>, ListCell<Album>>(){
     	  
             @Override
@@ -119,78 +200,7 @@ public class AlbumsController extends Controller implements Serializable{
                  
                 return cell;
             }
-        });
-		
-		this.primaryStage = primaryStage;
-	}
-
-	public void addAlbum (ActionEvent e) throws IOException {
-		// Open a second window that prompts the user for new user's credentials
-		StageManager stageManager = new StageManager();
-		stageManager.getStage("Add_Album",currUser).showAndWait();
-	}
-	
-	public void deleteAlbum(ActionEvent e) throws IOException{
-		// Get the selected album's name and check if anything was selected
-				Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
-				if (selectedAlbum == null) {
-					System.out.println("nothing was selected.");
-					return;
-				}
-				
-				// Ask the user if they really want to delete the selected user
-				StageManager stageManager = new StageManager();
-				
-				// If user confirms, copy the entire file into a temp file
-				// but don't copy the line that matches the selectedUser.
-				// This mimics "deleting" a user from the accounts.txt file.				
-				if (stageManager.getConfirmation()) {
-					try {
-						// Deserialize storedUsers data
-						FileInputStream fileIn = new FileInputStream("accounts.dat");
-						ObjectInputStream in = new ObjectInputStream(fileIn);
-						ArrayList<User> storedUsers = (ArrayList<User>) in.readObject();
-						in.close();
-						fileIn.close();
-						
-						// Traverse storedUsers and remove selected album
-						for (User u : storedUsers) {
-							System.out.println("User: "+u.getUserName()+" Curr: "+currUser.getUserName());
-							if (currUser.equals(u)) {
-								System.out.println("made to delete");
-								currUser.deleteAlbum(selectedAlbum);
-								obsList.remove(selectedAlbum);
-							}
-						}
-						
-						// Serialize updated storedUsers
-						FileOutputStream fileOut = new FileOutputStream("accounts.dat");
-						ObjectOutputStream out = new ObjectOutputStream(fileOut);
-						out.writeObject(storedUsers);
-						out.close();
-						fileOut.close();
-					}
-					catch (ClassNotFoundException ex) {
-						System.out.println("Class not found.");
-					}
-					catch (IOException ex) {
-						System.out.println("Error reading file.");
-					}
-				}
-
-	}
-	
-	public void editAlbum(ActionEvent e) throws IOException{
-		
-	}
-	
-	public void searchAlbum(ActionEvent e) throws IOException{
-		
-	}
-	
-	public void logOut (ActionEvent e) throws IOException {
-		StageManager stageManager = new StageManager();
-		stageManager.loadScene(primaryStage, "Login");
+        });		
 	}
 	
 }
