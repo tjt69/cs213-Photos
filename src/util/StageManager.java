@@ -12,7 +12,7 @@ public class StageManager {
 	
 	// Creates stage based off of input String sceneName
 	public Stage getStage (String sceneName) throws IOException {
-		// Set up loginController
+		// Set up controller
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/view/FXMLDocs/" + sceneName +".fxml"));
 		Parent root = (Parent)loader.load();
@@ -45,5 +45,10 @@ public class StageManager {
 		primaryStage.setTitle("Photo App");
 		primaryStage.setResizable(false); 
 		primaryStage.show();		
+	}
+
+	public boolean getConfirmation () throws IOException {
+		Confirmation c = new Confirmation();
+		return c.confirmationAlert();
 	}
 }

@@ -1,8 +1,11 @@
 package view;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
@@ -32,16 +35,66 @@ public class ManageUsersController extends Controller{
 	}
 	
 	public void addUser (ActionEvent e) throws IOException {
+		// Open a second window that prompts the user for new user's credentials
 		StageManager stageManager = new StageManager();
 		stageManager.getStage("Add_User").showAndWait();
+		
+		// After adding a user, re-display to update view
 		displayUsers();
 	}
 	
 	public void deleteUser (ActionEvent e) throws IOException {
+		// Get the selected user's name and check if anything was selected
 		String selectedUser = usersListView.getSelectionModel().getSelectedItem();
-		System.out.println(selectedUser);
+		if (selectedUser == null) {
+			System.out.println("nothing was selected.");
+			return;
+		}
+		
+		// Ask the user if they really want to delete the selected user
 		StageManager stageManager = new StageManager();
-		stageManager.getStage("Delete").showAndWait();
+		
+		// If user confirms, copy the entire file into a temp file
+		// but don't copy the line that matches the selectedUser.
+		// This mimics "deleting" a user from the accounts.txt file.				
+		if (stageManager.getConfirmation()) {
+			try {
+				String line = "";
+				String userName;
+				
+				File currentFile = new File("accounts.txt");
+				File tempFile = new File("temp.txt");
+				
+				FileReader fileReader = new FileReader(currentFile);
+				FileWriter fileWriter = new FileWriter(tempFile);
+				
+				BufferedReader br = new BufferedReader(fileReader);
+				BufferedWriter bw = new BufferedWriter(fileWriter);
+				
+				while ((line = br.readLine()) != null) {
+					StringTokenizer tk = new StringTokenizer(line);	
+					userName = tk.nextToken();
+					if (!selectedUser.equals(userName)) {
+						bw.write(line + System.getProperty("line.separator"));
+					}
+				}
+				
+				br.close();
+				bw.close();
+				
+				currentFile.delete();
+				tempFile.renameTo(new File("accounts.txt"));
+			}
+			catch (FileNotFoundException ex) {
+				System.out.println("File not found.");
+			}
+			catch (IOException ex) {
+				System.out.println("Error reading file.");
+			}
+		}
+		
+		// After deleting a user, re-display to update view
+		displayUsers();
 	}
 	
 	public void logOut (ActionEvent e) throws IOException {

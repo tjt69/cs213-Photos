@@ -33,8 +33,8 @@ public class AddUserController extends Controller {
 			try {
 				FileWriter fileWriter = new FileWriter("accounts.txt", true);
 				BufferedWriter bw = new BufferedWriter(fileWriter);
+				bw.write(userName + " " + password + " user");
 				bw.newLine();
-				bw.write(userName + " " + password + " " + "user");
 				bw.close();
 				closeWindow();
 			}

@@ -13,7 +13,7 @@
             <Font name="Comic Sans MS Bold" size="13.0" />
          </font>
       </Label>
-      <Button layoutX="35.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="YES" />
-      <Button layoutX="35.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="NO" />
+      <Button fx:id="yesButton" layoutX="35.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="YES" />
+      <Button fx:id="noButton" layoutX="35.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="NO" />
    </children>
 </Pane>

@@ -10,7 +10,6 @@ public class Controller {
 		return;
 	}
 	
-	// Closes window when the cancelButton is hit
 	public void closeWindow () {
 		primaryStage.close();
 	}
