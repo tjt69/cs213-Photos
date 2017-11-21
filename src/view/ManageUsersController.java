@@ -78,6 +78,7 @@ public class ManageUsersController extends Controller{
 					if (user.getUserName().equals(selectedUser.getUserName()) &&
 						user.getPassword().equals(selectedUser.getPassword())) {
 						storedUsers.remove(user);
+						break;
 					}
 				}
 				

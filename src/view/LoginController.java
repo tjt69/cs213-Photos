@@ -43,7 +43,7 @@ public class LoginController extends Controller{
 				if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
 					if (user.getAccountType().equals("user")) {
 						StageManager stageManager = new StageManager();
-						stageManager.loadScene(primaryStage, "Albums");
+						stageManager.loadScene(primaryStage, "Albums", user);
 					}
 					else if (user.getAccountType().equals("admin")) {
 						StageManager stageManager = new StageManager();

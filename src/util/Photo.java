@@ -2,6 +2,7 @@ package util;
 
 import java.io.File;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -67,11 +68,15 @@ public class Photo implements Serializable{
 		return this.file.getPath();
 	}
 	
-	
-	
 	public Date getDate() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.date;
+	}
+	
+	public String toString() {
+		return this.Caption;
 	}
 
+	public String getDateString(){
+		return new SimpleDateFormat("MM/dd/yy").format(this.getDate());
+	}
 }
