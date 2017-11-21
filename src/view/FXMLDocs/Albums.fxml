@@ -7,40 +7,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane alignment="CENTER" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="371.0" text="Photo App - Albums" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane fx:controller="view.AlbumsController" alignment="CENTER" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="371.0" text="Photo App - Albums" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="351.0">
          <children>
             <ListView prefHeight="227.0" prefWidth="288.0" />
-            <Button layoutX="296.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Add">
+            <Button fx:id="add" onAction="#addAlbum" layoutX="296.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Add">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <TextField layoutX="70.0" layoutY="244.0" prefHeight="25.0" prefWidth="188.0" promptText="Album Name: " />
-            <TextField layoutX="70.0" layoutY="269.0" prefHeight="25.0" prefWidth="189.0" promptText="# of Photos" />
-            <TextField layoutX="70.0" layoutY="294.0" prefHeight="25.0" prefWidth="188.0" promptText="Date Range:" />
-            <Button layoutX="296.0" layoutY="50.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Delete">
+            <TextField fx:id="albumName" editable="false" layoutX="70.0" layoutY="244.0" prefHeight="25.0" prefWidth="188.0" promptText="Album Name: " />
+            <TextField fx:id="numPhotos" editable="false" layoutX="70.0" layoutY="269.0" prefHeight="25.0" prefWidth="189.0" promptText="# of Photos" />
+            <TextField fx:id="dateRange" editable="false" layoutX="70.0" layoutY="294.0" prefHeight="25.0" prefWidth="188.0" promptText="Date Range:" />
+            <Button fx:id="delete" onAction="#deleteAlbum" layoutX="296.0" layoutY="50.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Delete">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="296.0" layoutY="88.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Edit">
+            <Button fx:id="edit" onAction="#editAlbum" layoutX="296.0" layoutY="88.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Edit">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="296.0" layoutY="124.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Search">
+            <Button fx:id="search" onAction="#searchAlbum" layoutX="296.0" layoutY="124.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Search">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="296.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Logout">
+            <Button fx:id="logout" onAction="#logOut" layoutX="296.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Logout">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="296.0" layoutY="192.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Quit">
+            <Button fx:id="quit" onAction="#closeWindow" layoutX="296.0" layoutY="192.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Quit">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
