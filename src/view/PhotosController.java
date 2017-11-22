@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.nio.file.Path;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -85,6 +84,17 @@ public class PhotosController extends Controller{
 			
 		}
 		
+	}
+	
+	public void copyPhoto () throws IOException {
+		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
+		stageManager.getCopyPhotoStage(currUser, album, selectedPhoto).showAndWait();
+	}
+	
+	public void movePhoto () throws IOException {
+		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
+		stageManager.getMovePhotoStage(currUser, album, selectedPhoto).showAndWait();
+		displayPhotos();
 	}
 	
 	public void goBack () throws IOException {
