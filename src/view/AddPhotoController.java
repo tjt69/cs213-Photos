@@ -43,36 +43,7 @@ public class AddPhotoController extends Controller{
 			else {
 				album.addPhoto(new Photo (selectedFile));
 			}
-			
-			try {
-				// Deserialize storedUsers data
-				FileInputStream fileIn = new FileInputStream("accounts.dat");
-				ObjectInputStream in = new ObjectInputStream(fileIn);
-				ArrayList<User> storedUsers = (ArrayList<User>) in.readObject();
-				in.close();
-				fileIn.close();
-						
-				// Traverse storedUsers and remove selected album
-				for (User u : storedUsers) {
-					if (currUser.equals(u)) {
-						storedUsers.set(storedUsers.indexOf(u), currUser);
-					}
-				}
-						
-				// Serialize updated storedUsers
-				FileOutputStream fileOut = new FileOutputStream("accounts.dat");
-				ObjectOutputStream out = new ObjectOutputStream(fileOut);
-				out.writeObject(storedUsers);
-				out.close();
-				fileOut.close();
-				closeWindow();
-			}
-			catch (ClassNotFoundException ex) {
-				System.out.println("Class not found.");
-			}
-			catch (IOException ex) {
-				System.out.println("Error reading file.");
-			}
+			currUser.saveUser();
 			
 		}
 	}
