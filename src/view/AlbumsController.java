@@ -169,13 +169,6 @@ public class AlbumsController extends Controller implements Serializable{
 			obsList.add(album);
 		}
 		
-		if(obsList.isEmpty()) {
-			Album stock = new Album("Stock");
-			System.out.println(stock.getName());
-			currUser.addAlbums(stock);
-			obsList.add(stock);
-		}
-		
 		// Sort obsList
 		FXCollections.sort(obsList, AlbumComparator);
 		
