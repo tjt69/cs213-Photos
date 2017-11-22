@@ -113,9 +113,26 @@ public class PhotosController extends Controller{
 		stageManager.loadScene(primaryStage, "Albums", currUser);
 	}
 	
+	public void editCaption () throws IOException {
+		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
+		stageManager.getEditCaptionStage(currUser, selectedPhoto).showAndWait();
+	}
+	
 	public void addTag () throws IOException {
 		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
 		stageManager.getAddTagStage(currUser, selectedPhoto).showAndWait();
+		displayPhotos();
+	}
+	
+	public void deleteTag() throws IOException {
+		if (stageManager.getConfirmation()) {
+			Tag tag = tagsListView.getSelectionModel().getSelectedItem();
+			if (tag != null) {
+				Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
+				selectedPhoto.deleteTag(tag);
+				currUser.saveUser();
+			}
+		}
 		displayPhotos();
 	}
 	
@@ -159,7 +176,9 @@ public class PhotosController extends Controller{
     	    		for (Tag tag : newPhoto.getTags()) {
     	    			tagsObsList.add(tag);
     	    		}
+    	    		tagsListView.setItems(tagsObsList);
     	    		tagsListView.setCellFactory(param -> new ListCell<Tag>() {
+    	    			@Override
     	    			public void updateItem (Tag tag, boolean empty) {
     	    				super.updateItem(tag, empty);
     	    				if (empty) {
