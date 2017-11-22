@@ -6,17 +6,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane alignment="CENTER" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="137.0" prefWidth="185.0" text="Edit Album" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane fx:controller="view.EditAlbumController" alignment="CENTER" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="137.0" prefWidth="185.0" text="Edit Album" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="42.0" prefWidth="0.0">
          <children>
-            <TextField layoutX="10.0" layoutY="14.0" promptText="Edit Name">
+            <TextField fx:id="albumNameTextField" layoutX="10.0" layoutY="14.0" promptText="Edit Name">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </TextField>
-            <Button layoutX="10.0" layoutY="52.0" mnemonicParsing="false" text="Edit Album" />
-            <Button layoutX="102.0" layoutY="52.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Cancel">
+            <Button onAction="#editAlbum" layoutX="10.0" layoutY="52.0" mnemonicParsing="false" text="Edit Album" />
+            <Button onAction="#closeWindow" layoutX="102.0" layoutY="52.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Cancel">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>

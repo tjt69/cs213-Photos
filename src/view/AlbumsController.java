@@ -11,6 +11,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -122,7 +125,27 @@ public class AlbumsController extends Controller implements Serializable{
 	}
 	
 	public void editAlbum(ActionEvent e) throws IOException{
+		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
 		
+		// Loads a scene onto a stage
+		// Set up EditAlbumController
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/FXMLDocs/Edit_Album.fxml"));
+		Parent root = (Parent)loader.load();
+		EditAlbumController controller = loader.getController();
+		
+		Stage secondaryStage = new Stage();
+		controller.start(secondaryStage, currUser, selectedAlbum);
+		
+		// Set up secondaryStage
+		Scene scene = new Scene(root);
+		secondaryStage.setScene(scene);
+		secondaryStage.setTitle("Photo App");
+		secondaryStage.setResizable(false); 
+		secondaryStage.showAndWait();
+		
+		// After prompting user for edit, re-display updated albums
+		displayAlbums();
 	}
 	
 	public void searchAlbum(ActionEvent e) throws IOException{
