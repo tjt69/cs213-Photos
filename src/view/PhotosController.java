@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -27,6 +28,7 @@ public class PhotosController extends Controller{
 	private ObservableList<Photo> obsList;
 	
 	@FXML ListView<Photo> photosListView;
+	@FXML TitledPane photosTitledPane;
 	
 	StageManager stageManager = new StageManager();
 	
@@ -35,6 +37,7 @@ public class PhotosController extends Controller{
 		this.currUser = currUser;
 		this.album = selectedAlbum;
 		
+		photosTitledPane.setText("Photos in " + selectedAlbum.getName());
 		displayPhotos();
 	}
 	
