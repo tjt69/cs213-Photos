@@ -20,6 +20,7 @@ import util.Album;
 import util.Controller;
 import util.Photo;
 import util.StageManager;
+import util.Tag;
 import util.User;
 
 
@@ -30,6 +31,11 @@ public class Search_PhotoController extends Controller {
 	StageManager stageManager = new StageManager();
 	
 	@FXML ListView<Photo> display;
+	@FXML ListView<Tag> tagListView;
+	@FXML ImageView image_view;
+	@FXML TextField caption;
+	@FXML TextField date;
+	
 	@FXML TextField start_date;
 	@FXML TextField end_date;
 	@FXML TextField tag_type;

@@ -5,24 +5,32 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane fx:controller="view.Search_PhotoController" fx:id="search_photos" alignment="CENTER" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="292.0" prefWidth="427.0" text="Search Photos" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane fx:id="search_photos" alignment="CENTER" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="292.0" prefWidth="702.0" text="Search Photos" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Search_PhotoController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
             <TextField fx:id="start_date" layoutX="238.0" layoutY="27.0" prefHeight="25.0" prefWidth="72.0" promptText="mm/dd/yy" />
             <ListView fx:id="display" layoutX="15.0" layoutY="27.0" prefHeight="218.0" prefWidth="212.0" />
             <Button fx:id="create_album" layoutX="239.0" layoutY="184.0" mnemonicParsing="false" prefWidth="150.0" text="Create Album w/ Search" />
-            <Button fx:id="back" onAction="#backButton" layoutX="239.0" layoutY="220.0" mnemonicParsing="false" prefWidth="150.0" text="Back to Albums" />
-            <Button fx:id="search_date" onAction="#searchDateButton" layoutX="238.0" layoutY="64.0" mnemonicParsing="false" prefWidth="150.0" text="Search By Date" />
+            <Button fx:id="back" layoutX="239.0" layoutY="220.0" mnemonicParsing="false" onAction="#backButton" prefWidth="150.0" text="Back to Albums" />
+            <Button fx:id="search_date" layoutX="238.0" layoutY="64.0" mnemonicParsing="false" onAction="#searchDateButton" prefWidth="150.0" text="Search By Date" />
             <Label layoutX="260.0" layoutY="6.0" text="From" />
             <Label layoutX="343.0" layoutY="6.0" text="To" />
             <TextField fx:id="end_date" layoutX="314.0" layoutY="27.0" prefHeight="25.0" prefWidth="74.0" promptText="mm/dd/yy" />
             <TextField fx:id="tag_type" layoutX="238.0" layoutY="106.0" prefHeight="25.0" prefWidth="72.0" promptText="Type" />
             <TextField fx:id="tag_value" layoutX="313.0" layoutY="106.0" prefHeight="25.0" prefWidth="74.0" promptText="Value" />
-            <Button fx:id="search_tag" onAction="#searchTagButton" layoutX="239.0" layoutY="146.0" mnemonicParsing="false" prefWidth="150.0" text="Search By Tag" />
+            <Button fx:id="search_tag" layoutX="239.0" layoutY="146.0" mnemonicParsing="false" onAction="#searchTagButton" prefWidth="150.0" text="Search By Tag" />
             <Label layoutX="301.0" layoutY="89.0" text="Tag" />
+            <ImageView fx:id="image_view" fitHeight="176.0" fitWidth="261.0" layoutX="423.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="417.0" layoutY="194.0" text="Caption:" />
+            <Label layoutX="432.0" layoutY="220.0" text="Date: " />
+            <Label layoutX="539.0" layoutY="220.0" text="Tags:" />
+            <TextField fx:id="caption" layoutX="465.0" layoutY="190.0" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="date" layoutX="468.0" layoutY="216.0" prefHeight="25.0" prefWidth="72.0" />
+            <ListView fx:id="tagListView" layoutX="570.0" layoutY="217.0" prefHeight="41.0" prefWidth="117.0" />
          </children></AnchorPane>
   </content>
 </TitledPane>
