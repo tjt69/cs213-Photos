@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="650.0" text="Photos in &quot;&quot;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PhotosController">
+<TitledPane alignment="CENTER" fx:id="photosTitledPane" collapsible="false" animated="false" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="650.0" text="Photos in &quot;&quot;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PhotosController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -30,10 +30,10 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
                                     <Button layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#addPhoto" prefHeight="29.0" prefWidth="100.0" text="Add" />
-                                    <Button layoutX="14.0" layoutY="60.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="100.0" text="Delete" />
+                                    <Button layoutX="14.0" layoutY="60.0" mnemonicParsing="false" onAction="#deletePhoto" prefHeight="29.0" prefWidth="100.0" text="Delete" />
                                     <Button layoutX="241.0" layoutY="18.0" mnemonicParsing="false" onAction="#goBack" prefHeight="29.0" prefWidth="100.0" text="Back" />
-                                    <Button layoutX="128.0" layoutY="18.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="100.0" text="Move" />
-                                    <Button layoutX="128.0" layoutY="60.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="100.0" text="Copy" />
+                                    <Button layoutX="128.0" layoutY="18.0" mnemonicParsing="false" onAction="#movePhoto" prefHeight="29.0" prefWidth="100.0" text="Move" />
+                                    <Button layoutX="128.0" layoutY="60.0" mnemonicParsing="false" onAction="#copyPhoto" prefHeight="29.0" prefWidth="100.0" text="Copy" />
                                     <Button layoutX="241.0" layoutY="62.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="29.0" prefWidth="100.0" text="Quit" />
                                  </children>
                               </AnchorPane>

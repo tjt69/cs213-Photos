@@ -1,7 +1,10 @@
 package view;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Path;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -9,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -24,6 +28,7 @@ public class PhotosController extends Controller{
 	private ObservableList<Photo> obsList;
 	
 	@FXML ListView<Photo> photosListView;
+	@FXML TitledPane photosTitledPane;
 	
 	StageManager stageManager = new StageManager();
 	
@@ -32,12 +37,66 @@ public class PhotosController extends Controller{
 		this.currUser = currUser;
 		this.album = selectedAlbum;
 		
+		photosTitledPane.setText("Photos in " + selectedAlbum.getName());
 		displayPhotos();
 	}
 	
 	public void addPhoto () throws IOException {
 		stageManager.getAddPhotoStage(currUser, album).showAndWait();
+		displayPhotos();
+	}
+	
+	public void deletePhoto () throws IOException {
+		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
+		if (selectedPhoto == null) {
+			return;
+		}
 		
+		if (stageManager.getConfirmation()) {
+			album.deletePhoto(selectedPhoto);
+			try {
+				// Deserialize storedUsers data
+				FileInputStream fileIn = new FileInputStream("accounts.dat");
+				ObjectInputStream in = new ObjectInputStream(fileIn);
+				ArrayList<User> storedUsers = (ArrayList<User>) in.readObject();
+				in.close();
+				fileIn.close();
+						
+				// Traverse storedUsers and remove selected album
+				for (User u : storedUsers) {
+					if (currUser.equals(u)) {
+						storedUsers.set(storedUsers.indexOf(u), currUser);
+					}
+				}
+						
+				// Serialize updated storedUsers
+				FileOutputStream fileOut = new FileOutputStream("accounts.dat");
+				ObjectOutputStream out = new ObjectOutputStream(fileOut);
+				out.writeObject(storedUsers);
+				out.close();
+				fileOut.close();
+				
+				displayPhotos();
+			}
+			catch (ClassNotFoundException ex) {
+				System.out.println("Class not found.");
+			}
+			catch (IOException ex) {
+				System.out.println("Error reading file.");
+			}			
+			
+		}
+		
+	}
+	
+	public void copyPhoto () throws IOException {
+		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
+		stageManager.getCopyPhotoStage(currUser, album, selectedPhoto).showAndWait();
+	}
+	
+	public void movePhoto () throws IOException {
+		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
+		stageManager.getMovePhotoStage(currUser, album, selectedPhoto).showAndWait();
 		displayPhotos();
 	}
 	

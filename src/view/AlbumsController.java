@@ -59,7 +59,6 @@ public class AlbumsController extends Controller implements Serializable{
 				return a1.getName().compareToIgnoreCase(a2.getName());
 			}
 		}
-
 	};
 	
 	public void start(Stage primaryStage,User user) {

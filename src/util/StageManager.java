@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import view.AddPhotoController;
+import view.CopyPhotoController;
+import view.MovePhotoController;
 import view.PhotosController;
 
 // Helper class that holds methods to create Stages dynamically
@@ -119,4 +121,39 @@ public class StageManager {
 		Confirmation c = new Confirmation();
 		return c.confirmationAlert();
 	}
+
+	public Stage getCopyPhotoStage(User currUser, Album album, Photo selectedPhoto) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/FXMLDocs/Copy_Photo.fxml"));
+		Parent root = (Parent)loader.load();
+		CopyPhotoController copyPhotoController = loader.getController();
+		
+		Stage secondaryStage = new Stage();
+		copyPhotoController.start(secondaryStage, currUser, album, selectedPhoto);
+		
+		Scene scene = new Scene(root);
+		secondaryStage.setScene(scene);
+		secondaryStage.setTitle("Photo App");
+		secondaryStage.setResizable(false); 
+		
+		return secondaryStage;
+	}
+	
+	public Stage getMovePhotoStage(User currUser, Album album, Photo selectedPhoto) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/FXMLDocs/Move_Photo.fxml"));
+		Parent root = (Parent)loader.load();
+		MovePhotoController movePhotoController = loader.getController();
+		
+		Stage secondaryStage = new Stage();
+		movePhotoController.start(secondaryStage, currUser, album, selectedPhoto);
+		
+		Scene scene = new Scene(root);
+		secondaryStage.setScene(scene);
+		secondaryStage.setTitle("Photo App");
+		secondaryStage.setResizable(false); 
+		
+		return secondaryStage;
+	}	
+	
 }
