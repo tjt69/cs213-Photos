@@ -30,6 +30,7 @@ public class PhotosController extends Controller{
 	private User currUser;
 	private Album album;
 	private ObservableList<Photo> obsList;
+	private ObservableList<Tag> tagsObsList;
 	
 	@FXML ListView<Photo> photosListView;
 	@FXML TitledPane photosTitledPane;
@@ -148,6 +149,21 @@ public class PhotosController extends Controller{
     	    		
     	    		captionTextField.setText(newPhoto.getCaption());
     	    		dateTakenTextField.setText(newPhoto.getDateString());
+    	    		tagsObsList = FXCollections.observableArrayList();
+    	    		for (Tag tag : newPhoto.getTags()) {
+    	    			tagsObsList.add(tag);
+    	    		}
+    	    		tagsListView.setCellFactory(param -> new ListCell<Tag>() {
+    	    			public void updateItem (Tag tag, boolean empty) {
+    	    				super.updateItem(tag, empty);
+    	    				if (empty) {
+    	    					setText(null);
+    	    				}
+    	    				else {
+    	    					setText(tag.toString());
+    	    				}
+    	    			}
+    	    		});
     	    	}
     	    }
     	});		
