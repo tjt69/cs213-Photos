@@ -5,12 +5,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import util.Album;
 import util.Controller;
@@ -35,8 +39,8 @@ public class Search_PhotoController extends Controller {
 	@FXML Button back;
 	@FXML Button search_tag;
 	
-	public void start(Stage pStage, User user) {
-		this.primaryStage = pStage;
+	public void start(Stage primaryStage, User user) {
+		this.primaryStage = primaryStage;
 		this.currUser = user;
 		DisplaySearchResults();
 	}
@@ -46,6 +50,7 @@ public class Search_PhotoController extends Controller {
 	}
 	
 	public void searchDateButton(ActionEvent e) throws IOException{
+		obsList = FXCollections.observableArrayList();
 		SimpleDateFormat f = new SimpleDateFormat("mm/dd/yy");
 		Date startD = null;
 		Date endD = null;
@@ -91,7 +96,25 @@ public class Search_PhotoController extends Controller {
 	}
 	
 	private void DisplaySearchResults() {
-		// TODO Auto-generated method stub
+		display.setItems(obsList);
+		display.setCellFactory(param -> new ListCell<Photo>() {
+			private ImageView imageView = new ImageView();
+			@Override
+			public void updateItem (Photo photo, boolean empty) {
+				super.updateItem(photo, empty);
+				if (empty) {
+					setText (null);
+					setGraphic(null);
+				}
+				else {
+					String path = "file:///" + photo.getPath();
+					Image image = new Image(path, 50, 50, true, true);
+					imageView.setImage(image);
+					setGraphic(imageView);
+				}
+			}
+		});
 		
 	}
 }
+

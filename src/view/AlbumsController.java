@@ -152,7 +152,7 @@ public class AlbumsController extends Controller implements Serializable{
 	
 	public void searchAlbum(ActionEvent e) throws IOException{
 		StageManager stageManager = new StageManager();
-		stageManager.loadScene(primaryStage, "Search_Photos", currUser);
+		stageManager.loadScene(primaryStage, "Search_Photo", currUser);
 	}
 	
 	public void logOut (ActionEvent e) throws IOException {
@@ -163,16 +163,17 @@ public class AlbumsController extends Controller implements Serializable{
 	private void displayAlbums () {
 		obsList = FXCollections.observableArrayList();
 		
+		
+		// Add all of user's albums to obsList
+		for (Album album : currUser.getAlbums()) {
+			obsList.add(album);
+		}
+		
 		if(obsList.isEmpty()) {
 			Album stock = new Album("Stock");
 			System.out.println(stock.getName());
 			currUser.addAlbums(stock);
 			obsList.add(stock);
-		}
-		
-		// Add all of user's albums to obsList
-		for (Album album : currUser.getAlbums()) {
-			obsList.add(album);
 		}
 		
 		// Sort obsList
