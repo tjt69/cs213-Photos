@@ -7,11 +7,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,15 +23,21 @@ import util.Album;
 import util.Controller;
 import util.Photo;
 import util.StageManager;
+import util.Tag;
 import util.User;
 
 public class PhotosController extends Controller{
 	private User currUser;
 	private Album album;
 	private ObservableList<Photo> obsList;
+	private ObservableList<Tag> tagsObsList;
 	
 	@FXML ListView<Photo> photosListView;
 	@FXML TitledPane photosTitledPane;
+	@FXML ImageView selectedImageView;
+	@FXML TextField captionTextField;
+	@FXML TextField dateTakenTextField;
+	@FXML ListView<Tag> tagsListView;
 	
 	StageManager stageManager = new StageManager();
 	
@@ -130,5 +139,33 @@ public class PhotosController extends Controller{
 				}
 			}
 		});
+		photosListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Photo>() {
+    	    @Override
+    	    public void changed(ObservableValue<? extends Photo> obsList, Photo oldPhoto, Photo newPhoto) {
+    	    	if(newPhoto!=null) {
+    	    		String path = "file:///" + newPhoto.getPath();
+    	    		Image image = new Image(path, true);
+    	    		selectedImageView.setImage(image);
+    	    		
+    	    		captionTextField.setText(newPhoto.getCaption());
+    	    		dateTakenTextField.setText(newPhoto.getDateString());
+    	    		tagsObsList = FXCollections.observableArrayList();
+    	    		for (Tag tag : newPhoto.getTags()) {
+    	    			tagsObsList.add(tag);
+    	    		}
+    	    		tagsListView.setCellFactory(param -> new ListCell<Tag>() {
+    	    			public void updateItem (Tag tag, boolean empty) {
+    	    				super.updateItem(tag, empty);
+    	    				if (empty) {
+    	    					setText(null);
+    	    				}
+    	    				else {
+    	    					setText(tag.toString());
+    	    				}
+    	    			}
+    	    		});
+    	    	}
+    	    }
+    	});		
 	}
 }
