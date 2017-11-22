@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +30,7 @@ public class Search_PhotoController extends Controller {
 	private User currUser;
 	
 	private ObservableList<Photo> obsList;
+	private ObservableList<Tag> tagsObsList;
 	StageManager stageManager = new StageManager();
 	
 	@FXML ListView<Photo> display;
@@ -94,6 +97,28 @@ public class Search_PhotoController extends Controller {
 	
 
 	public void searchTagButton(ActionEvent e) throws IOException{
+		obsList = FXCollections.observableArrayList();
+		String t = tag_type.getText();
+		String v = tag_value.getText();
+		
+		if(t.equals("")&&v.equals("")) {
+			return;
+		}
+		Tag tag = new Tag(t,v);
+		for(Album i: currUser.getAlbums()) {
+				for(Photo p: i.getPhotos()) {
+					if(p.containsTag(tag)) {
+						obsList.add(p);
+					}
+					
+				}
+		}
+		if(obsList.isEmpty()) {
+			errDialog("No Photos containing specified tag",this.primaryStage);
+		}else {
+			DisplaySearchResults();
+		}
+
 		
 	}
 	
@@ -103,6 +128,7 @@ public class Search_PhotoController extends Controller {
 	
 	private void DisplaySearchResults() {
 		display.setItems(obsList);
+		
 		display.setCellFactory(param -> new ListCell<Photo>() {
 			private ImageView imageView = new ImageView();
 			@Override
@@ -120,6 +146,35 @@ public class Search_PhotoController extends Controller {
 				}
 			}
 		});
+		
+		display.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Photo>() {
+    	    @Override
+    	    public void changed(ObservableValue<? extends Photo> obsList, Photo oldPhoto, Photo newPhoto) {
+    	    	if(newPhoto!=null) {
+    	    		String path = "file:///" + newPhoto.getPath();
+    	    		Image image = new Image(path, true);
+    	    		image_view.setImage(image);
+    	    		
+    	    		caption.setText(newPhoto.getCaption());
+    	    		date.setText(newPhoto.getDateString());
+    	    		tagsObsList = FXCollections.observableArrayList();
+    	    		for (Tag tag : newPhoto.getTags()) {
+    	    			tagsObsList.add(tag);
+    	    		}
+    	    		tagListView.setCellFactory(param -> new ListCell<Tag>() {
+    	    			public void updateItem (Tag tag, boolean empty) {
+    	    				super.updateItem(tag, empty);
+    	    				if (empty) {
+    	    					setText(null);
+    	    				}
+    	    				else {
+    	    					setText(tag.toString());
+    	    				}
+    	    			}
+    	    		});
+    	    	}
+    	    }
+    	});		
 		
 	}
 }

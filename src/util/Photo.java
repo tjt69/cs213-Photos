@@ -43,7 +43,7 @@ public class Photo implements Serializable{
 	
 	public boolean containsTag(Tag t) {
 		for(Tag i : this.tags) {
-			if(i.equals(t)) {
+			if(t.equals(i)) {
 				return true;
 			}
 		}
