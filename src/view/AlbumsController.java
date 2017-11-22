@@ -79,7 +79,6 @@ public class AlbumsController extends Controller implements Serializable{
 		// Get the selected album's name and check if anything was selected
 		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
 		if (selectedAlbum == null) {
-			System.out.println("nothing was selected.");
 			return;
 		}
 				
@@ -100,7 +99,6 @@ public class AlbumsController extends Controller implements Serializable{
 						
 				// Traverse storedUsers and remove selected album
 				for (User u : storedUsers) {
-					System.out.println("User: "+u.getUserName()+" Curr: "+currUser.getUserName());
 					if (currUser.equals(u)) {
 						currUser.deleteAlbum(selectedAlbum);
 						storedUsers.set(storedUsers.indexOf(u), currUser);
@@ -174,14 +172,6 @@ public class AlbumsController extends Controller implements Serializable{
 		
 		// Display currUser's albums
 		albumsListView.setItems(obsList);
-		albumsListView.getSelectionModel().select(0);
-		
-		albumsListView
-      	.getSelectionModel()
-      		.selectedIndexProperty()
-      			.addListener(
-           (obs, oldVal, newVal) -> 
-               num = albumsListView.getSelectionModel().getSelectedIndex());
       
 		albumsListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Album>() {
 
@@ -192,35 +182,13 @@ public class AlbumsController extends Controller implements Serializable{
     	    		numPhotos.setText("# of Photos: \t"+newValue.getNumPhoto());
     	    		dateRange.setText("Date Range: \t"+newValue.getOldestDateString()+" - "+newValue.getNewestDateString());
     	    	}
+    	    	else {
+    	    		albumName.setText("");
+    	    		numPhotos.setText("");
+    	    		dateRange.setText("");
+    	    	}
     	    }
     	});         		
-		
-		albumsListView.setCellFactory(new Callback<ListView<Album>, ListCell<Album>>(){
-    	  
-            @Override
-            public ListCell<Album> call(ListView<Album> p) {
-                 
-                ListCell<Album> cell = new ListCell<Album>(){
- 
-                    @Override
-                    protected void updateItem(Album a, boolean bln) {
-                        super.updateItem(a, bln);
-                        if (a != null) {
-                            setText(a.getName());
-                            albumName.setText("Album Name: \t"+"\""+a.getName()+"\"");
-            	    		numPhotos.setText("# of Photos: \t"+a.getNumPhoto());
-            	    		dateRange.setText("Date Range: \t"+a.getOldestDateString()+" - "+a.getNewestDateString());
-                        }
-                        else {
-                        	setText(null);
-                        }
-                    }
- 
-                };
-                 
-                return cell;
-            }
-        });		
 		
 		// Add a double-click handler so that when an album is double-clicked,
 		// the Photos scene is loaded
@@ -239,6 +207,7 @@ public class AlbumsController extends Controller implements Serializable{
 				}
 			}
 		});
+		albumsListView.getSelectionModel().select(0);
 	}
 	
 }
