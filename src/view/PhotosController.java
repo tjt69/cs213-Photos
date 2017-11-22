@@ -116,6 +116,7 @@ public class PhotosController extends Controller{
 	public void editCaption () throws IOException {
 		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
 		stageManager.getEditCaptionStage(currUser, selectedPhoto).showAndWait();
+		displayPhotos();
 	}
 	
 	public void addTag () throws IOException {
