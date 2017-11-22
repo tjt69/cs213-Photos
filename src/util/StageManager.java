@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import view.AddPhotoController;
+import view.PhotosController;
 
 // Helper class that holds methods to create Stages dynamically
 public class StageManager {
@@ -48,6 +50,24 @@ public class StageManager {
 				
 		return secondaryStage;
 	}
+	
+	public Stage getAddPhotoStage (User currUser, Album album) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/FXMLDocs/Add_Photo.fxml"));
+		Parent root = (Parent)loader.load();
+		AddPhotoController addPhotoController = loader.getController();
+		
+		Stage secondaryStage = new Stage();
+		addPhotoController.start(secondaryStage, currUser, album);
+		
+		Scene scene = new Scene(root);
+		secondaryStage.setScene(scene);
+		secondaryStage.setTitle("Photo App");
+		secondaryStage.setResizable(false); 
+		
+		return secondaryStage;
+	}
+	
 	// Loads a scene onto a stage
 	public void loadScene (Stage primaryStage, String sceneName,User user) throws IOException {
 		// Set up loginController
@@ -80,6 +100,21 @@ public class StageManager {
 		primaryStage.setResizable(false); 
 		primaryStage.show();		
 	}
+	
+	public void loadPhotosScene (Stage primaryStage, User currUser, Album selectedAlbum) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/FXMLDocs/Photos.fxml"));
+		Parent root = (Parent)loader.load();
+		PhotosController photosController = loader.getController();
+		photosController.start(primaryStage, currUser, selectedAlbum);
+		
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Photo App");
+		primaryStage.setResizable(false); 
+		primaryStage.show();
+	}
+	
 	public boolean getConfirmation () throws IOException {
 		Confirmation c = new Confirmation();
 		return c.confirmationAlert();
