@@ -79,4 +79,8 @@ public class Photo implements Serializable{
 	public String getDateString(){
 		return new SimpleDateFormat("MM/dd/yy").format(this.getDate());
 	}
+	
+	public void setCaption (String newCaption) {
+		this.Caption = newCaption;
+	}
 }
