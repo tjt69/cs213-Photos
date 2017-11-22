@@ -58,7 +58,9 @@ public class AddAlbumController extends Controller{
 				System.out.println("Error reading file.");
 			}
 		}
-		
+		else {
+			return;
+		}
 		closeWindow();
 	}
 }

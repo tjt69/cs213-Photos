@@ -1,6 +1,10 @@
 package view;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
@@ -37,8 +41,50 @@ public class PhotosController extends Controller{
 	
 	public void addPhoto () throws IOException {
 		stageManager.getAddPhotoStage(currUser, album).showAndWait();
-		
 		displayPhotos();
+	}
+	
+	public void deletePhoto () throws IOException {
+		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
+		if (selectedPhoto == null) {
+			return;
+		}
+		
+		if (stageManager.getConfirmation()) {
+			album.deletePhoto(selectedPhoto);
+			try {
+				// Deserialize storedUsers data
+				FileInputStream fileIn = new FileInputStream("accounts.dat");
+				ObjectInputStream in = new ObjectInputStream(fileIn);
+				ArrayList<User> storedUsers = (ArrayList<User>) in.readObject();
+				in.close();
+				fileIn.close();
+						
+				// Traverse storedUsers and remove selected album
+				for (User u : storedUsers) {
+					if (currUser.equals(u)) {
+						storedUsers.set(storedUsers.indexOf(u), currUser);
+					}
+				}
+						
+				// Serialize updated storedUsers
+				FileOutputStream fileOut = new FileOutputStream("accounts.dat");
+				ObjectOutputStream out = new ObjectOutputStream(fileOut);
+				out.writeObject(storedUsers);
+				out.close();
+				fileOut.close();
+				
+				displayPhotos();
+			}
+			catch (ClassNotFoundException ex) {
+				System.out.println("Class not found.");
+			}
+			catch (IOException ex) {
+				System.out.println("Error reading file.");
+			}			
+			
+		}
+		
 	}
 	
 	public void goBack () throws IOException {
