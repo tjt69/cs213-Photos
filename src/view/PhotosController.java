@@ -137,6 +137,18 @@ public class PhotosController extends Controller{
 		displayPhotos();
 	}
 	
+	public void nextPhoto () throws IOException {
+		int index = photosListView.getSelectionModel().getSelectedIndex();
+		photosListView.getSelectionModel().select(index+1);
+	}
+	
+	public void prevPhoto () throws IOException {
+		int index = photosListView.getSelectionModel().getSelectedIndex();
+		if (index-1 >=0) {
+			photosListView.getSelectionModel().select(index-1);
+		}
+	}
+	
 	private void displayPhotos () {
 		ArrayList<Photo> photos = album.getPhotos();
 		obsList = FXCollections.observableArrayList();

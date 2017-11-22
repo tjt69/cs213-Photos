@@ -51,8 +51,8 @@
                                           <Image url="@../../../../../../Pictures/Wallpaper/BLEACH57.png" />
                                        </image>
                                     </ImageView>
-                                    <Button layoutX="11.0" layoutY="266.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="146.0" text="Prev" />
-                                    <Button layoutX="194.0" layoutY="266.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="146.0" text="Next" />
+                                    <Button onAction="#prevPhoto" layoutX="11.0" layoutY="266.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="146.0" text="Prev" />
+                                    <Button onAction="#nextPhoto" layoutX="194.0" layoutY="266.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="146.0" text="Next" />
                                  </children>
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
