@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import view.AddPhotoController;
 import view.AddTagController;
 import view.CopyPhotoController;
+import view.EditCaptionController;
 import view.MovePhotoController;
 import view.PhotosController;
 
@@ -159,12 +160,29 @@ public class StageManager {
 
 	public Stage getAddTagStage(User currUser, Photo selectedPhoto) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/view/FXMLDocs/Move_Photo.fxml"));
+		loader.setLocation(getClass().getResource("/view/FXMLDocs/Add_Tag.fxml"));
 		Parent root = (Parent)loader.load();
 		AddTagController addTagController = loader.getController();
 		
 		Stage secondaryStage = new Stage();
 		addTagController.start(secondaryStage, currUser, selectedPhoto);
+		
+		Scene scene = new Scene(root);
+		secondaryStage.setScene(scene);
+		secondaryStage.setTitle("Photo App");
+		secondaryStage.setResizable(false); 
+		
+		return secondaryStage;
+	}
+
+	public Stage getEditCaptionStage(User currUser, Photo selectedPhoto) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/FXMLDocs/Edit_Caption.fxml"));
+		Parent root = (Parent)loader.load();
+		EditCaptionController editCaptionController = loader.getController();
+		
+		Stage secondaryStage = new Stage();
+		editCaptionController.start(secondaryStage, currUser, selectedPhoto);
 		
 		Scene scene = new Scene(root);
 		secondaryStage.setScene(scene);
