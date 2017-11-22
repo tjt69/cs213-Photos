@@ -3,6 +3,7 @@ package view;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javafx.beans.value.ChangeListener;
@@ -71,13 +72,13 @@ public class Search_PhotoController extends Controller {
 			startD = f.parse(start_date.getText());
 			endD = f.parse(end_date.getText());
 		} catch (ParseException e1) {
-			errDialog("Error: Wrong Format\nRequired: MM/DD/YY",this.primaryStage);
+			errDialog("Error: Wrong Format\nRequired: MM/DD/YY");
 			return;
 		}
 		
 		if(startD!=null && endD!=null) {
 			if (startD.compareTo(endD) > 0 || startD.equals(endD)){
-				errDialog("Error: Start Date must be Prior to End Date",this.primaryStage);
+				errDialog("Error: Start Date must be Prior to End Date");
 				return;
 			}
 			for(Album i: currUser.getAlbums()) {
@@ -87,7 +88,7 @@ public class Search_PhotoController extends Controller {
 				}
 			}
 			if(obsList.isEmpty()) {
-				errDialog("No Photos within specified date range",this.primaryStage);
+				errDialog("No Photos within specified date range");
 			}else {
 				DisplaySearchResults();
 			}
@@ -114,7 +115,7 @@ public class Search_PhotoController extends Controller {
 				}
 		}
 		if(obsList.isEmpty()) {
-			errDialog("No Photos containing specified tag",this.primaryStage);
+			errDialog("No Photos containing specified tag");
 		}else {
 			DisplaySearchResults();
 		}
@@ -123,7 +124,12 @@ public class Search_PhotoController extends Controller {
 	}
 	
 	public void createAlbum(ActionEvent e) throws IOException{
+		ArrayList<Photo> result = new ArrayList<Photo>();
+		for(Photo p: obsList) {
+			result.add(p);
+		}
 		
+		stageManager.getStage("Add_Album",currUser,result).showAndWait();
 	}
 	
 	private void DisplaySearchResults() {

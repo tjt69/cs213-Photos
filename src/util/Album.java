@@ -17,6 +17,11 @@ public class Album implements Serializable{
 		myPhotos = new ArrayList<Photo>();
 	}
 	
+	public Album(String name, ArrayList<Photo>results) {
+		this.name = name;
+		myPhotos = results;
+	}
+	
 	public void addPhoto(Photo p) {
 		myPhotos.add(p);
 		if (oldestDate == null || p.getDate().compareTo(oldestDate) < 0)

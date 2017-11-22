@@ -38,16 +38,16 @@ public class Tag implements Serializable {
 			return false;
 		}
 		if (tag.getType().equals("")) {
-			if (this.value.equals(tag.getValue())) {
+			if (this.value.toLowerCase().equals(tag.getValue().toLowerCase())) {
 				return true;
 			}
 		}
 		if (tag.getValue().equals("")) {
-			if (this.type.equals(tag.getType())) {
+			if (this.type.toLowerCase().equals(tag.getType().toLowerCase())) {
 				return true;
 			}
 		}
-		if (this.value.equals(tag.getValue()) && this.type.equals(tag.getType())) {
+		if (this.value.toLowerCase().equals(tag.getValue().toLowerCase()) && this.type.toLowerCase().equals(tag.getType().toLowerCase())) {
 			return true;
 		}
 		return false;

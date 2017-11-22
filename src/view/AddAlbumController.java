@@ -12,11 +12,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import util.Album;
 import util.Controller;
+import util.Photo;
 import util.User;
 
 public class AddAlbumController extends Controller{
 	private User currUser;
-	
+	private ArrayList<Photo> result;
 	@FXML TextField albumNameTextField;
 	
 	public void start(Stage primaryStage,User user) {
@@ -24,11 +25,25 @@ public class AddAlbumController extends Controller{
 		this.primaryStage = primaryStage;
 	}
 	
+	public void start(Stage primaryStage,User user, ArrayList<Photo> result) {
+		this.currUser = user;
+		this.primaryStage = primaryStage;
+		this.result = result;
+		
+	}
+	
 	public void addAlbum () {
 		String albumName = albumNameTextField.getText();
 		if (!albumName.isEmpty()) {
-			Album album = new Album(albumName);
-			currUser.addAlbums(album);
+			if(result==null) {
+				Album album = new Album(albumName);
+				currUser.addAlbums(album);
+			}else {
+				Album album = new Album(albumName,result);
+				currUser.addAlbums(album);
+			}
+			
+			
 			try {
 				// Deserialize storedUsers data
 				FileInputStream fileIn = new FileInputStream("accounts.dat");

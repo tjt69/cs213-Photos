@@ -1,6 +1,7 @@
 package util;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,6 +27,25 @@ public class StageManager {
 				
 		Stage secondaryStage = new Stage();
 		controller.start(secondaryStage,user);
+								
+		// Set up secondaryStage
+		Scene scene = new Scene(root);
+		secondaryStage.setScene(scene);
+		secondaryStage.setTitle("Photo App");
+		secondaryStage.setResizable(false);
+				
+		return secondaryStage;
+	}
+	
+	public Stage getStage (String sceneName, User user, ArrayList<Photo> result) throws IOException {
+		// Set up controller
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/FXMLDocs/" + sceneName +".fxml"));
+		Parent root = (Parent)loader.load();
+		Controller controller = loader.getController();
+				
+		Stage secondaryStage = new Stage();
+		controller.start(secondaryStage,user,result);
 								
 		// Set up secondaryStage
 		Scene scene = new Scene(root);

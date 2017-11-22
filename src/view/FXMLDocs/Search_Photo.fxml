@@ -14,7 +14,7 @@
          <children>
             <TextField fx:id="start_date" layoutX="238.0" layoutY="27.0" prefHeight="25.0" prefWidth="72.0" promptText="mm/dd/yy" />
             <ListView fx:id="display" layoutX="15.0" layoutY="27.0" prefHeight="218.0" prefWidth="212.0" />
-            <Button fx:id="create_album" layoutX="239.0" layoutY="184.0" mnemonicParsing="false" prefWidth="150.0" text="Create Album w/ Search" />
+            <Button fx:id="create_album" onAction="#createAlbum" layoutX="239.0" layoutY="184.0" mnemonicParsing="false" prefWidth="150.0" text="Create Album w/ Search" />
             <Button fx:id="back" layoutX="239.0" layoutY="220.0" mnemonicParsing="false" onAction="#backButton" prefWidth="150.0" text="Back to Albums" />
             <Button fx:id="search_date" layoutX="238.0" layoutY="64.0" mnemonicParsing="false" onAction="#searchDateButton" prefWidth="150.0" text="Search By Date" />
             <Label layoutX="260.0" layoutY="6.0" text="From" />
