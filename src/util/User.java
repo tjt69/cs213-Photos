@@ -1,5 +1,10 @@
 package util;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -45,5 +50,36 @@ public class User implements Serializable{
 	public boolean equals(User u){
 		if (!(u instanceof User) || u == null) return false;
 		return this.userName.equals(u.getUserName()) && this.password.equals(u.password);
+	}
+	
+	public void saveUser () {
+		try {
+			// Deserialize storedUsers data
+			FileInputStream fileIn = new FileInputStream("accounts.dat");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			ArrayList<User> storedUsers = (ArrayList<User>) in.readObject();
+			in.close();
+			fileIn.close();
+					
+			// Traverse storedUsers and save this User
+			for (User u : storedUsers) {
+				if (this.equals(u)) {
+					storedUsers.set(storedUsers.indexOf(u), this);
+				}
+			}
+					
+			// Serialize updated storedUsers
+			FileOutputStream fileOut = new FileOutputStream("accounts.dat");
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out.writeObject(storedUsers);
+			out.close();
+			fileOut.close();
+		}
+		catch (ClassNotFoundException ex) {
+			System.out.println("Class not found.");
+		}
+		catch (IOException ex) {
+			System.out.println("Error reading file.");
+		}	
 	}
 }

@@ -113,6 +113,12 @@ public class PhotosController extends Controller{
 		stageManager.loadScene(primaryStage, "Albums", currUser);
 	}
 	
+	public void addTag () throws IOException {
+		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
+		stageManager.getAddTagStage(currUser, selectedPhoto).showAndWait();
+		displayPhotos();
+	}
+	
 	private void displayPhotos () {
 		ArrayList<Photo> photos = album.getPhotos();
 		obsList = FXCollections.observableArrayList();

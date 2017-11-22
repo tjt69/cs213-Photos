@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane alignment="CENTER" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="166.0" prefWidth="222.0" text="Add Tags" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane fx:id="AddTagController" alignment="CENTER" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="166.0" prefWidth="222.0" text="Add Tag" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="145.0" prefWidth="212.0">
          <children>
-            <TextField layoutX="25.0" layoutY="14.0" promptText="Tag Name">
+            <TextField fx:id="tagTypeTextField" layoutX="25.0" layoutY="14.0" promptText="Tag Type">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
@@ -19,12 +19,12 @@
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font></Button>
-            <Button layoutX="117.0" layoutY="94.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Cancel">
+            <Button onAction="#closeWindow" layoutX="117.0" layoutY="94.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Cancel">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Button>
-            <TextField layoutX="25.0" layoutY="54.0" promptText="Tag Value">
+            <TextField fx:id="tagValueTextField" layoutX="25.0" layoutY="54.0" promptText="Tag Value">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>

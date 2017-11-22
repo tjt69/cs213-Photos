@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import view.AddPhotoController;
+import view.AddTagController;
 import view.CopyPhotoController;
 import view.MovePhotoController;
 import view.PhotosController;
@@ -147,6 +148,23 @@ public class StageManager {
 		
 		Stage secondaryStage = new Stage();
 		movePhotoController.start(secondaryStage, currUser, album, selectedPhoto);
+		
+		Scene scene = new Scene(root);
+		secondaryStage.setScene(scene);
+		secondaryStage.setTitle("Photo App");
+		secondaryStage.setResizable(false); 
+		
+		return secondaryStage;
+	}
+
+	public Stage getAddTagStage(User currUser, Photo selectedPhoto) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/view/FXMLDocs/Move_Photo.fxml"));
+		Parent root = (Parent)loader.load();
+		AddTagController addTagController = loader.getController();
+		
+		Stage secondaryStage = new Stage();
+		addTagController.start(secondaryStage, currUser, selectedPhoto);
 		
 		Scene scene = new Scene(root);
 		secondaryStage.setScene(scene);
