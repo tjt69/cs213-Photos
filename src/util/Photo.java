@@ -45,7 +45,7 @@ public class Photo implements Serializable{
 	}
 	
 	/**
-	 * Returns the number of tags an object has
+	 * Returns the number of tags a photo has
 	 * @return size of ArrayList containing tags
 	 */
 	public int getNumTags(){
@@ -53,17 +53,26 @@ public class Photo implements Serializable{
 	}
 	
 	/**
-	 * Returns the 
-	 * @return
+	 * Returns the ArrayList containing the tags a photo has 
+	 * @return ArrayList containing tags
 	 */
 	public ArrayList<Tag> getTags(){
 		return this.tags;
 	}
 	
+	/**
+	 * Returns the caption of the photo
+	 * @return String caption of the photo
+	 */
 	public String getCaption() {
 		return this.Caption;
 	}
 	
+	/**
+	 * Checks to see if Tag t is contained in the photo's list of tags
+	 * @param t Tag to be checked
+	 * @return True if found, false if otherwise
+	 */
 	public boolean containsTag(Tag t) {
 		for(Tag i : this.tags) {
 			if(i.equals(t)) {
@@ -73,36 +82,68 @@ public class Photo implements Serializable{
 		return false;
 	}
 	
+	/**
+	 * Adds tag to ArrayList of Tags
+	 * @param t Tag to be added
+	 */
 	public void addTag(Tag t) {
 		this.tags.add(t);
 	}
 	
+	/**
+	 * Removes tag from ArrayList of Tags
+	 * @param t Tag to be removed
+	 */
 	public void deleteTag(Tag t) {
 		if(this.tags.contains(t)) {
 			this.tags.remove(t);
 		}
 	}
 	
+	/**
+	 * Returns file of photo
+	 * @return File of photo
+	 */
 	public File getFile() {
 		return this.file;
 	}
 	
+	/**
+	 * Returns the path of the photo file
+	 * @return String path name
+	 */
 	public String getPath() {
 		return this.file.getPath();
 	}
 	
+	/**
+	 * Returns the date of the photo
+	 * @return Data object containing the date of the photo
+	 */
 	public Date getDate() {
 		return this.date;
 	}
 	
+	/**
+	 * Overwrites the toString method to print the photo's caption
+	 * @return String caption
+	 */
 	public String toString() {
 		return this.Caption;
 	}
 
+	/**
+	 * Converts the Date object into a formatted string
+	 * @return String "MM/dd/yy"
+	 */
 	public String getDateString(){
 		return new SimpleDateFormat("MM/dd/yy").format(this.getDate());
 	}
 	
+	/**
+	 * Changes the caption of the photo to newCaption
+	 * @param newCaption String of the new caption 
+	 */
 	public void setCaption (String newCaption) {
 		this.Caption = newCaption;
 	}

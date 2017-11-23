@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="util.Controller" project="cs213-photo" 
+    file="/cs213-photo/src/util/Controller.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2552" y="395"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="view.AddUserController" project="cs213-photo" 
+    file="/cs213-photo/src/view/AddUserController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="166" x="1381" y="50"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="view.AddTagController" project="cs213-photo" 
+    file="/cs213-photo/src/view/AddTagController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="162" x="1083" y="886"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="view.MovePhotoController" project="cs213-photo" 
+    file="/cs213-photo/src/view/MovePhotoController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="216" x="1903" y="886"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="view.Search_PhotoController" project="cs213-photo" 
+    file="/cs213-photo/src/view/Search_PhotoController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="459" width="202" x="611" y="50"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="view.AlbumsController" project="cs213-photo" 
+    file="/cs213-photo/src/view/AlbumsController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="441" width="216" x="1125" y="50"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="app.PhotoApp" project="cs213-photo" file="/cs213-photo/src/app/PhotoApp.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="113" x="2063" y="50"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="util.Album" project="cs213-photo" file="/cs213-photo/src/util/Album.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="179" x="1666" y="1452"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="view.EditAlbumController" project="cs213-photo" 
+    file="/cs213-photo/src/view/EditAlbumController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="171" x="1104" y="549"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="view.AddAlbumController" project="cs213-photo" 
+    file="/cs213-photo/src/view/AddAlbumController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2377" y="1314"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="view.AddPhotoController" project="cs213-photo" 
+    file="/cs213-photo/src/view/AddPhotoController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="165" x="2415" y="886"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="util.Tag" project="cs213-photo" file="/cs213-photo/src/util/Tag.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="131" x="853" y="2270"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="util.User" project="cs213-photo" file="/cs213-photo/src/util/User.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="175" x="1338" y="1115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="view.ManageUsersController" project="cs213-photo" 
+    file="/cs213-photo/src/view/ManageUsersController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="181" x="1608" y="50"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="util.Photo" project="cs213-photo" file="/cs213-photo/src/util/Photo.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="150" x="1643" y="1843"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="util.StageManager" project="cs213-photo" 
+    file="/cs213-photo/src/util/StageManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="248" x="1608" y="549"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="view.EditCaptionController" project="cs213-photo" 
+    file="/cs213-photo/src/view/EditCaptionController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="162" x="1483" y="886"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="util.Confirmation" project="cs213-photo" 
+    file="/cs213-photo/src/util/Confirmation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="157" x="1706" y="886"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="view.CopyPhotoController" project="cs213-photo" 
+    file="/cs213-photo/src/view/CopyPhotoController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="216" x="2159" y="886"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="view.PhotosController" project="cs213-photo" 
+    file="/cs213-photo/src/view/PhotosController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="190" x="853" y="50"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="view.LoginController" project="cs213-photo" 
+    file="/cs213-photo/src/view/LoginController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="173" x="1829" y="50"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="22">    
+    <bendpoint x="904" y="549"/>    
+    <bendpoint x="904" y="886"/>    
+    <bendpoint x="904" y="1115"/>    
+    <bendpoint x="904" y="1452"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="23" name="obsList"/>      
+      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <bendpoint x="1389" y="549"/>    
+    <bendpoint x="1389" y="886"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="26" name="users"/>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="28">    
+    <bendpoint x="2248" y="549"/>    
+    <bendpoint x="2248" y="50"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="30">    
+    <bendpoint x="942" y="549"/>    
+    <bendpoint x="942" y="886"/>    
+    <bendpoint x="946" y="1115"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="31" name="album"/>      
+      <multiplicity id="32" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="33">    
+    <bendpoint x="1911" y="1115"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="34" name="album"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <bendpoint x="1991" y="1115"/>    
+    <bendpoint x="1991" y="1452"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="37" name="selectedPhoto"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="39">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="40" name="currUser"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="42">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="43">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <dependency id="44">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <association id="45">    
+    <bendpoint x="1783" y="1115"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="46" name="album"/>      
+      <multiplicity id="47" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="49" name="stageManager"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="51">    
+    <bendpoint x="977" y="1115"/>    
+    <bendpoint x="977" y="1452"/>    
+    <bendpoint x="977" y="1843"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="53">    
+    <bendpoint x="2141" y="1115"/>    
+    <bendpoint x="2141" y="1452"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="54" name="result"/>      
+      <multiplicity id="55" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="56">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="57">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="58">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="59">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="60">    
+    <bendpoint x="883" y="549"/>    
+    <bendpoint x="963" y="886"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="61" name="currUser"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="63">    
+    <bendpoint x="2032" y="50"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="64">    
+    <bendpoint x="1326" y="549"/>    
+    <bendpoint x="1326" y="886"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="65" name="currUser"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <bendpoint x="1305" y="886"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="68" name="currUser"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="71" name="currUser"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <bendpoint x="741" y="549"/>    
+    <bendpoint x="741" y="886"/>    
+    <bendpoint x="741" y="1115"/>    
+    <bendpoint x="741" y="1452"/>    
+    <bendpoint x="741" y="1843"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="74" name="tagsObsList"/>      
+      <multiplicity id="75" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="77">    
+    <bendpoint x="1010" y="1115"/>    
+    <bendpoint x="1010" y="1452"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="78" name="selectedPhoto"/>      
+      <multiplicity id="79" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="80">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <association id="81">    
+    <bendpoint x="1052" y="549"/>    
+    <bendpoint x="1052" y="886"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="82" name="currUser"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <bendpoint x="1031" y="886"/>    
+    <bendpoint x="1031" y="1115"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="85" name="selectedAlbum"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="88" name="albums"/>      
+      <multiplicity id="89" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="91" name="currUser"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="93">    
+    <bendpoint x="1431" y="886"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <association id="94">    
+    <bendpoint x="1572" y="1115"/>    
+    <bendpoint x="1572" y="1452"/>    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="95" name="selectedPhoto"/>      
+      <multiplicity id="96" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="97">    
+    <bendpoint x="1347" y="549"/>    
+    <bendpoint x="1347" y="886"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="98">    
+    <bendpoint x="1675" y="886"/>    
+    <bendpoint x="1675" y="1115"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <association id="99">    
+    <bendpoint x="1970" y="1115"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="100" name="album"/>      
+      <multiplicity id="101" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="102">    
+    <bendpoint x="2330" y="549"/>    
+    <bendpoint x="2330" y="50"/>    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <dependency id="103">    
+    <bendpoint x="2085" y="1115"/>    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <association id="104">    
+    <bendpoint x="1932" y="1115"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="105" name="obsList"/>      
+      <multiplicity id="106" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="107">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="108" name="myPhotos"/>      
+      <multiplicity id="109" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="110">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <association id="111">    
+    <bendpoint x="1305" y="549"/>    
+    <bendpoint x="1284" y="886"/>    
+    <bendpoint x="1284" y="1115"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="112" name="obsList"/>      
+      <multiplicity id="113" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="114">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="115" name="currUser"/>      
+      <multiplicity id="116" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="117">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="118" name="currUser"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="120">    
+    <bendpoint x="2269" y="549"/>    
+    <bendpoint x="2269" y="50"/>    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <dependency id="121">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="122">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="123">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <association id="124">    
+    <bendpoint x="1577" y="50"/>    
+    <bendpoint x="1368" y="549"/>    
+    <bendpoint x="1368" y="886"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="125" name="user"/>      
+      <multiplicity id="126" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="128" name="stageManager"/>      
+      <multiplicity id="129" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="130">    
+    <bendpoint x="1073" y="549"/>    
+    <bendpoint x="1073" y="50"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="131">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="132" name="tags"/>      
+      <multiplicity id="133" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="134">    
+    <bendpoint x="1875" y="1115"/>    
+    <bendpoint x="1875" y="1452"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="135" name="selectedPhoto"/>      
+      <multiplicity id="136" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="137">    
+    <bendpoint x="2206" y="549"/>    
+    <bendpoint x="2206" y="50"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="138">    
+    <bendpoint x="1804" y="1115"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="139" name="obsList"/>      
+      <multiplicity id="140" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="141">    
+    <bendpoint x="2869" y="50"/>    
+    <bendpoint x="2869" y="549"/>    
+    <bendpoint x="2869" y="886"/>    
+    <bendpoint x="2869" y="1115"/>    
+    <bendpoint x="2869" y="1452"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="142" name="result"/>      
+      <multiplicity id="143" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <bendpoint x="1410" y="549"/>    
+    <bendpoint x="1410" y="886"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="145" name="users"/>      
+      <multiplicity id="146" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="147">    
+    <bendpoint x="2227" y="549"/>    
+    <bendpoint x="2227" y="50"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="148">    
+    <bendpoint x="862" y="549"/>    
+    <bendpoint x="862" y="886"/>    
+    <bendpoint x="862" y="1115"/>    
+    <bendpoint x="862" y="1452"/>    
+    <bendpoint x="862" y="1843"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="149" name="tagsObsList"/>      
+      <multiplicity id="150" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="151">    
+    <bendpoint x="841" y="549"/>    
+    <bendpoint x="883" y="886"/>    
+    <bendpoint x="925" y="1115"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="152">    
+    <bendpoint x="1452" y="886"/>    
+    <bendpoint x="1543" y="1115"/>    
+    <bendpoint x="1543" y="1452"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <generalization id="153">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <dependency id="154">    
+    <bendpoint x="2106" y="1115"/>    
+    <bendpoint x="2106" y="1452"/>    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <generalization id="155">    
+    <bendpoint x="1094" y="50"/>    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="156">    
+    <bendpoint x="820" y="549"/>    
+    <bendpoint x="830" y="886"/>    
+    <bendpoint x="841" y="1115"/>    
+    <bendpoint x="883" y="1452"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="157" name="obsList"/>      
+      <multiplicity id="158" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="159">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="160" name="currUser"/>      
+      <multiplicity id="161" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="162">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
