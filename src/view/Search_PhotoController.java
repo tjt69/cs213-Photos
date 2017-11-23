@@ -26,7 +26,11 @@ import util.StageManager;
 import util.Tag;
 import util.User;
 
-
+/** 
+ * Controls the "Search_Photo" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class Search_PhotoController extends Controller {
 	private User currUser;
 	
@@ -51,16 +55,32 @@ public class Search_PhotoController extends Controller {
 	@FXML Button search_tag;
 	@FXML Button remove;
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 * @param currUser is the current User that's accessing this stage
+	 */
 	public void start(Stage primaryStage, User user) {
 		this.primaryStage = primaryStage;
 		this.currUser = user;
 		DisplaySearchResults();
 	}
 	
+	/**
+	 * Takes the User back to the "Albums" stage
+	 * @param e the ActionEvent that prompted the button	
+	 * @throws IOException
+	 */
 	public void backButton(ActionEvent e) throws IOException{
 		stageManager.loadScene(primaryStage, "Albums", currUser);
 	}
 	
+	/**
+	 * Populates the ListView based off of the User's search parameters
+	 * @param e the ActionEvent that prompted the button
+	 * @throws IOException
+	 */
 	public void searchDateButton(ActionEvent e) throws IOException{
 		obsList = FXCollections.observableArrayList();
 		SimpleDateFormat f = new SimpleDateFormat("mm/dd/yy");
@@ -97,8 +117,11 @@ public class Search_PhotoController extends Controller {
 		}
 	}
 	
-	
-
+	/**
+	 * Populates the ListView based off of the User's search parameters
+	 * @param e the ActionEvent that prompted the button
+	 * @throws IOException
+	 */
 	public void searchTagButton(ActionEvent e) throws IOException{
 		obsList = FXCollections.observableArrayList();
 		String t = tag_type.getText();
@@ -125,6 +148,11 @@ public class Search_PhotoController extends Controller {
 		
 	}
 	
+	/**
+	 * Creates an album based off the Photo search results
+	 * @param e
+	 * @throws IOException
+	 */
 	public void createAlbum(ActionEvent e) throws IOException{
 		ArrayList<Photo> result = new ArrayList<Photo>();
 		for(Photo p: obsList) {
