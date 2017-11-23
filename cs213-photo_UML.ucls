@@ -3,7 +3,7 @@
   associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="util.Controller" project="cs213-photo" 
     file="/cs213-photo/src/util/Controller.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2552" y="395"/>    
+    <position height="189" width="219" x="2023" y="-179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="view.AddAlbumController" project="cs213-photo" 
     file="/cs213-photo/src/view/AddAlbumController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2377" y="1314"/>    
+    <position height="-1" width="-1" x="2617" y="786"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="util.Photo" project="cs213-photo" file="/cs213-photo/src/util/Photo.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="387" width="150" x="1643" y="1843"/>    
+    <position height="-1" width="-1" x="1746" y="2168"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -607,11 +607,12 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="141">    
-    <bendpoint x="2869" y="50"/>    
-    <bendpoint x="2869" y="549"/>    
-    <bendpoint x="2869" y="886"/>    
-    <bendpoint x="2869" y="1115"/>    
-    <bendpoint x="2869" y="1452"/>    
+    <bendpoint x="2656" y="216"/>    
+    <bendpoint x="2708" y="584"/>    
+    <bendpoint x="2752" y="676"/>    
+    <bendpoint x="2756" y="892"/>    
+    <bendpoint x="2716" y="932"/>    
+    <bendpoint x="2612" y="1120"/>    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="142" name="result"/>      
       <multiplicity id="143" minimum="0" maximum="2147483647"/>    
