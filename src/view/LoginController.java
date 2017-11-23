@@ -39,21 +39,24 @@ public class LoginController extends Controller{
 			FileInputStream fileIn = new FileInputStream("accounts.dat");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			users = (ArrayList<User>) in.readObject();
+			boolean validUser = false;
 			for (User user : users) {
 				if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
 					if (user.getAccountType().equals("user")) {
 						StageManager stageManager = new StageManager();
 						stageManager.loadScene(primaryStage, "Albums", user);
+						validUser = true;
 					}
 					else if (user.getAccountType().equals("admin")) {
 						StageManager stageManager = new StageManager();
 						stageManager.loadScene(primaryStage, "Manage_Users");
+						validUser = true;
 						break;
 					}
 				}
-				else {
-					errDialog("Invalid username/password.");
-				}
+			}
+			if (!validUser) {
+				errDialog("Invalid username/password");
 			}
 			in.close();
 		}
