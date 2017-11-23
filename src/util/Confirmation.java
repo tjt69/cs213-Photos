@@ -8,9 +8,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * Class Representation of a Confirmation object
+ * @author Justin Valeroso
+ * @author Travis Thiel
+ *
+ */
 public class Confirmation {
 	private boolean answer = false;
 	
+	/**
+	 * Prompts the user if they are sure they want to delete the selection
+	 * @return True if the yes button is clicked, false if otherwise
+	 * @throws IOException
+	 */
 	public boolean confirmationAlert () throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/view/FXMLDocs/Delete.fxml"));

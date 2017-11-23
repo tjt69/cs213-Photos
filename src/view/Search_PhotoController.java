@@ -155,13 +155,18 @@ public class Search_PhotoController extends Controller {
 	 */
 	public void createAlbum(ActionEvent e) throws IOException{
 		ArrayList<Photo> result = new ArrayList<Photo>();
+		if(obsList==null)return;
 		for(Photo p: obsList) {
 			result.add(p);
 		}
 		
+		
 		stageManager.getStage("Add_Album",currUser,result).showAndWait();
 	}
 	
+	/**
+	 * Updates the listview with the images that match the search parameters
+	 */
 	private void DisplaySearchResults() {
 		display.setItems(obsList);
 		

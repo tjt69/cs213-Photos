@@ -6,6 +6,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Class Representation of a Photo object
+ * @author Justin Valeroso
+ * @author Travis Thiel
+ *
+ */
 public class Photo implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -15,6 +21,11 @@ public class Photo implements Serializable{
 	private Date date;
 	private ArrayList<Tag> tags;
 	
+	/**
+	 * Constructor for a Photo Instance
+	 * @param file File object that contains the photo
+	 * @param cap String caption
+	 */
 	public Photo(File file, String cap) {
 		this.Caption = cap;
 		this.file = file;
@@ -22,6 +33,10 @@ public class Photo implements Serializable{
 		this.tags = new ArrayList<Tag>();
 	}
 	
+	/**
+	 * Constructor for a Photo Instance
+	 * @param file File object that contains the photo
+	 */
 	public Photo(File file) {
 		this.Caption = file.getPath();
 		this.file = file;
@@ -29,10 +44,18 @@ public class Photo implements Serializable{
 		this.tags = new ArrayList<Tag>();
 	}
 	
+	/**
+	 * Returns the number of tags an object has
+	 * @return size of ArrayList containing tags
+	 */
 	public int getNumTags(){
 		return this.tags.size();
 	}
 	
+	/**
+	 * Returns the 
+	 * @return
+	 */
 	public ArrayList<Tag> getTags(){
 		return this.tags;
 	}
