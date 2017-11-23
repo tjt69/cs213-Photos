@@ -51,6 +51,9 @@ public class LoginController extends Controller{
 						break;
 					}
 				}
+				else {
+					errDialog("Invalid username/password.");
+				}
 			}
 			in.close();
 		}
