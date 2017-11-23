@@ -4,26 +4,21 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" fx:controller="view.LoginController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TitledPane fx:id="login" collapsible="false" animated="false" prefHeight="279.0" prefWidth="385.0" text="      			              LOGIN" textAlignment="CENTER">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="372.0">
-               <children>
-                  <TextField fx:id="userNameTextField" layoutX="115.0" layoutY="43.0" promptText="User Name" />
-                  <TextField fx:id="passwordTextField" layoutX="115.0" layoutY="96.0" promptText="Password" />
-                  <Button fx:id="signInButton" onAction = "#checkSignIn" layoutX="91.0" layoutY="171.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" text="Sign In" />
-                  <Button fx:id="quitButton" onAction = "#closeWindow" layoutX="196.0" layoutY="171.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" text="Quit" />
-               </children>
-            </AnchorPane>
-        </content>
-         <font>
-            <Font name="Comic Sans MS Bold" size="15.0" />
-         </font>
-      </TitledPane>
-   </children>
-</Pane>
+<TitledPane fx:id="login" animated="false" collapsible="false" prefHeight="279.0" prefWidth="385.0" text="                       LOGIN" textAlignment="CENTER" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="372.0">
+         <children>
+            <TextField fx:id="userNameTextField" layoutX="115.0" layoutY="43.0" promptText="User Name" />
+            <TextField fx:id="passwordTextField" layoutX="115.0" layoutY="96.0" promptText="Password" />
+            <Button fx:id="signInButton" layoutX="91.0" layoutY="171.0" mnemonicParsing="false" onAction="#checkSignIn" prefHeight="27.0" prefWidth="100.0" text="Sign In" />
+            <Button fx:id="quitButton" layoutX="196.0" layoutY="171.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="27.0" prefWidth="100.0" text="Quit" />
+         </children>
+      </AnchorPane>
+  </content>
+   <font>
+      <Font name="Comic Sans MS Bold" size="15.0" />
+   </font>
+</TitledPane>

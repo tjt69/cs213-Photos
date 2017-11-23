@@ -36,6 +36,7 @@ public class Search_PhotoController extends Controller {
 	
 	@FXML ListView<Photo> display;
 	@FXML ListView<Tag> tagListView;
+	@FXML ListView<Tag> para_ListView;
 	@FXML ImageView image_view;
 	@FXML TextField caption;
 	@FXML TextField date;
@@ -48,6 +49,7 @@ public class Search_PhotoController extends Controller {
 	@FXML Button create_album;
 	@FXML Button back;
 	@FXML Button search_tag;
+	@FXML Button remove;
 	
 	public void start(Stage primaryStage, User user) {
 		this.primaryStage = primaryStage;

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane fx:controller="view.AddAlbumController" alignment="CENTER" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="137.0" prefWidth="185.0" text="Add Album" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+<TitledPane alignment="CENTER" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="137.0" prefWidth="185.0" text="Add Album" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddAlbumController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="42.0" prefWidth="0.0">
          <children>
@@ -15,8 +15,8 @@
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </TextField>
-            <Button onAction="#addAlbum" layoutX="10.0" layoutY="52.0" mnemonicParsing="false" text="Add Album" />
-            <Button onAction="#closeWindow" layoutX="102.0" layoutY="52.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Cancel">
+            <Button layoutX="10.0" layoutY="52.0" mnemonicParsing="false" onAction="#addAlbum" text="Add Album" />
+            <Button layoutX="102.0" layoutY="52.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="26.0" prefWidth="72.0" text="Cancel">
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
