@@ -39,6 +39,9 @@ public class AddTagController extends Controller {
 			currUser.saveUser();
 			closeWindow();
 		}
+		else {
+			errDialog("Please provide input for both fields.");
+		}
 	}
 	
 }

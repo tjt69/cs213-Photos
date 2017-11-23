@@ -58,6 +58,9 @@ public class AddUserController extends Controller {
 				System.out.println("Error reading file.");
 			}
 		}
+		else {
+			errDialog("Please provide inputs for both fields"); 
+		}
 	}
 	
 }

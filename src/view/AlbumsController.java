@@ -79,6 +79,7 @@ public class AlbumsController extends Controller implements Serializable{
 		// Get the selected album's name and check if anything was selected
 		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
 		if (selectedAlbum == null) {
+			errDialog("No selected album.");
 			return;
 		}
 				
@@ -126,6 +127,11 @@ public class AlbumsController extends Controller implements Serializable{
 	
 	public void editAlbum(ActionEvent e) throws IOException{
 		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
+		
+		if (selectedAlbum == null) {
+			errDialog("No album selected.");
+			return;
+		}
 		
 		// Loads a scene onto a stage
 		// Set up EditAlbumController

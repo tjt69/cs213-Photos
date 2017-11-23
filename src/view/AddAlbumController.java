@@ -35,6 +35,13 @@ public class AddAlbumController extends Controller{
 	public void addAlbum () {
 		String albumName = albumNameTextField.getText();
 		if (!albumName.isEmpty()) {
+			for (Album album : currUser.getAlbums()) {
+				if (album.getName().equals(albumName)) {
+					errDialog("Albums cannot have the same name.");
+					return;
+				}
+			}
+			
 			if(result==null) {
 				Album album = new Album(albumName);
 				currUser.addAlbums(album);

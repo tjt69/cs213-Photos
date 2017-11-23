@@ -53,6 +53,7 @@ public class CopyPhotoController extends Controller{
 	public void copyPhoto () {
 		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
 		if (selectedAlbum == null) {
+			errDialog("No selected album.");
 			return;
 		}
 		
