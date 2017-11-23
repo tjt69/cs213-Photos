@@ -16,6 +16,11 @@ import util.Photo;
 import util.Tag;
 import util.User;
 
+/** 
+ * Controls the "Add_Tag" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class AddTagController extends Controller {
 	private User currUser;
 	private Photo selectedPhoto;
@@ -23,12 +28,23 @@ public class AddTagController extends Controller {
 	@FXML TextField tagTypeTextField;
 	@FXML TextField tagValueTextField;
 	
+	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 * @param currUser is the current User that's accessing this stage
+	 * @param selectedPhoto is the Photo that the tag will be added to
+	 */
 	public void start (Stage primaryStage, User currUser, Photo selectedPhoto) {
 		this.primaryStage = primaryStage;
 		this.currUser = currUser;
 		this.selectedPhoto = selectedPhoto;
 	}
 	
+	/**
+	 * Adds a tag a to the selectedPhoto
+	 */
 	public void addTag () {
 		String tagType = tagTypeTextField.getText();
 		String tagValue = tagValueTextField.getText();

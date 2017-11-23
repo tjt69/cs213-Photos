@@ -28,6 +28,11 @@ import util.Controller;
 import util.StageManager;
 import util.User;
 
+/** 
+ * Controls the "Albums" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class AlbumsController extends Controller implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -61,12 +66,23 @@ public class AlbumsController extends Controller implements Serializable{
 		}
 	};
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 * @param user is the current User that's accessing this stage
+	 */
 	public void start(Stage primaryStage,User user) {
 		this.currUser = user;
 		this.primaryStage = primaryStage;
 		displayAlbums();
 	}
-
+	
+	/**
+	 * Opens up the "Add_Album" stage
+	 * @param e the ActionEvent that prompted the button 
+	 * @throws IOException
+	 */
 	public void addAlbum (ActionEvent e) throws IOException {
 		// Open a second window that prompts the user for new album's credentials
 		StageManager stageManager = new StageManager();
@@ -75,6 +91,11 @@ public class AlbumsController extends Controller implements Serializable{
 		displayAlbums();
 	}
 	
+	/**
+	 * Deletes the selected album from the current User
+	 * @param e the ActionEvent that prompted the button
+	 * @throws IOException
+	 */
 	public void deleteAlbum(ActionEvent e) throws IOException{
 		// Get the selected album's name and check if anything was selected
 		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
@@ -125,6 +146,11 @@ public class AlbumsController extends Controller implements Serializable{
 
 	}
 	
+	/**
+	 * Opens up the "Edit_Album" stage
+	 * @param e the ActionEvent that prompted the button
+	 * @throws IOException
+	 */
 	public void editAlbum(ActionEvent e) throws IOException{
 		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
 		
@@ -154,16 +180,29 @@ public class AlbumsController extends Controller implements Serializable{
 		displayAlbums();
 	}
 	
+	/**
+	 * Opens up the "Search_Photo" stage
+	 * @param e the ActionEvent that prompted the button
+	 * @throws IOException
+	 */
 	public void searchAlbum(ActionEvent e) throws IOException{
 		StageManager stageManager = new StageManager();
 		stageManager.loadScene(primaryStage, "Search_Photo", currUser);
 	}
 	
+	/**
+	 * Returns User to the "Login" stage
+	 * @param e the ActionEvent that prompted the button
+	 * @throws IOException
+	 */
 	public void logOut (ActionEvent e) throws IOException {
 		StageManager stageManager = new StageManager();
 		stageManager.loadScene(primaryStage, "Login");
 	}
 	
+	/**
+	 * Helper method that populates the ListView with the User's albums
+	 */
 	private void displayAlbums () {
 		obsList = FXCollections.observableArrayList();
 		

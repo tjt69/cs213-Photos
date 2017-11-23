@@ -16,17 +16,30 @@ import javafx.stage.Stage;
 import util.Controller;
 import util.User;
 
+/** 
+ * Controls the "Add_User" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class AddUserController extends Controller {
 	@FXML Button addUserButton;
 	@FXML Button cancelButton;
 	@FXML TextField userNameTextField;
 	@FXML TextField passwordTextField;
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 */
 	public void start (Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
 	
-	// Adds user if addUserButton is hit and the textFields are populated
+	/**
+	 * Adds a User based off of the User's inputed userName and password
+	 * @throws IOException
+	 */
 	public void addUser () throws IOException {
 		String userName = userNameTextField.getText();
 		String password = passwordTextField.getText();

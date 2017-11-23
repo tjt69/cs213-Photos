@@ -15,18 +15,33 @@ import util.Album;
 import util.Controller;
 import util.User;
 
+/** 
+ * Controls the "Edit_Album" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class EditAlbumController extends Controller{
 	private User currUser;
 	private Album selectedAlbum;
 	
 	@FXML TextField albumNameTextField;
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 * @param user is the current User that's accessing this stage
+	 * @param selectedAlbum is the album that will be editted
+	 */
 	public void start (Stage primaryStage, User currUser, Album selectedAlbum) {
 		this.primaryStage = primaryStage;
 		this.currUser = currUser;
 		this.selectedAlbum = selectedAlbum;
 	}
 	
+	/**
+	 * Edits the album's name based off what the User inputed as the new name
+	 */
 	public void editAlbum () {
 		String albumName = albumNameTextField.getText();
 		selectedAlbum.setName(albumName);

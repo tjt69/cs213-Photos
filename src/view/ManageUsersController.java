@@ -27,6 +27,11 @@ import util.Controller;
 import util.StageManager;
 import util.User;
 
+/** 
+ * Controls the "Manage_Users" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class ManageUsersController extends Controller{
 	private ObservableList<User> users;
 	
@@ -36,11 +41,21 @@ public class ManageUsersController extends Controller{
 	@FXML Button logOutButton;
 	@FXML Button quitButton;
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 */
 	public void start(Stage primaryStage) {
 		displayUsers();
 		this.primaryStage = primaryStage;
 	}
 	
+	/**
+	 * Opens up the "Add_User" stage
+	 * @param e the ActionEvent that prompted the button 
+	 * @throws IOException
+	 */
 	public void addUser (ActionEvent e) throws IOException {
 		// Open a second window that prompts the user for new user's credentials
 		StageManager stageManager = new StageManager();
@@ -50,6 +65,11 @@ public class ManageUsersController extends Controller{
 		displayUsers();
 	}
 	
+	/**
+	 * Deletes the selectedUser
+	 * @param e the ActionEvent that prompted the button 
+	 * @throws IOException
+	 */
 	public void deleteUser (ActionEvent e) throws IOException {
 		// Get the selected user's name and check if anything was selected
 		User selectedUser = usersListView.getSelectionModel().getSelectedItem();
@@ -101,12 +121,19 @@ public class ManageUsersController extends Controller{
 		displayUsers();
 	}
 	
+	/**
+	 * Returns the User to the "Login" stage
+	 * @param e the ActionEvent that prompted the button 
+	 * @throws IOException
+	 */
 	public void logOut (ActionEvent e) throws IOException {
 		StageManager stageManager = new StageManager();
 		stageManager.loadScene(primaryStage, "Login");
 	}
 	
-	// Helper method to display the list of users
+	/**
+	 * Helper method that populates the ListView with all available Users
+	 */
 	private void displayUsers () {
 		// Create a new ObserableList
 		users = FXCollections.observableArrayList();

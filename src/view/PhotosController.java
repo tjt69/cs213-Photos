@@ -26,6 +26,11 @@ import util.StageManager;
 import util.Tag;
 import util.User;
 
+/** 
+ * Controls the "Photos" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class PhotosController extends Controller{
 	private User currUser;
 	private Album album;
@@ -41,6 +46,13 @@ public class PhotosController extends Controller{
 	
 	StageManager stageManager = new StageManager();
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 * @param currUser is the current User that's accessing this stage
+	 * @param album is the album that the User is viewing
+	 */
 	public void start (Stage primaryStage, User currUser, Album selectedAlbum) {
 		this.primaryStage = primaryStage;
 		this.currUser = currUser;
@@ -50,11 +62,19 @@ public class PhotosController extends Controller{
 		displayPhotos();
 	}
 	
+	/**
+	 * Loads the "Add_Photo" stage so the User can add a photo
+	 * @throws IOException
+	 */
 	public void addPhoto () throws IOException {
 		stageManager.getAddPhotoStage(currUser, album).showAndWait();
 		displayPhotos();
 	}
 	
+	/**
+	 * Prompts the User if they want to delete the selected photo, and if the User accepts, delete the photo
+	 * @throws IOException
+	 */
 	public void deletePhoto () throws IOException {
 		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
 		if (selectedPhoto == null) {
@@ -98,33 +118,57 @@ public class PhotosController extends Controller{
 		
 	}
 	
+	/**
+	 * Loads the "Copy_Photo" stage so the User can copy photos
+	 * @throws IOException
+	 */
 	public void copyPhoto () throws IOException {
 		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
 		stageManager.getCopyPhotoStage(currUser, album, selectedPhoto).showAndWait();
 	}
 	
+	/**
+	 * Loads the "Move_Photo" stage so the User can move photos
+	 * @throws IOException
+	 */
 	public void movePhoto () throws IOException {
 		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
 		stageManager.getMovePhotoStage(currUser, album, selectedPhoto).showAndWait();
 		displayPhotos();
 	}
 	
+	/**
+	 * Returns the User to the "Albums" stage
+	 * @throws IOException
+	 */
 	public void goBack () throws IOException {
 		stageManager.loadScene(primaryStage, "Albums", currUser);
 	}
 	
+	/**
+	 * Loads the "Edit_Caption" stage so the User can edit a photo's caption
+	 * @throws IOException
+	 */
 	public void editCaption () throws IOException {
 		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
 		stageManager.getEditCaptionStage(currUser, selectedPhoto).showAndWait();
 		displayPhotos();
 	}
 	
+	/**
+	 * Loads the "Add_Tag" stage so the User can add a Tag to a photo's caption
+	 * @throws IOException
+	 */
 	public void addTag () throws IOException {
 		Photo selectedPhoto = photosListView.getSelectionModel().getSelectedItem();
 		stageManager.getAddTagStage(currUser, selectedPhoto).showAndWait();
 		displayPhotos();
 	}
 	
+	/**
+	 * Prompts the User if they want to delete the selected Tag, and if the User accepts, delete the Tag
+	 * @throws IOException
+	 */
 	public void deleteTag() throws IOException {
 		if (stageManager.getConfirmation()) {
 			Tag tag = tagsListView.getSelectionModel().getSelectedItem();
@@ -137,11 +181,19 @@ public class PhotosController extends Controller{
 		displayPhotos();
 	}
 	
+	/**
+	 * Selects the next Photo in the ListView
+	 * @throws IOException
+	 */
 	public void nextPhoto () throws IOException {
 		int index = photosListView.getSelectionModel().getSelectedIndex();
 		photosListView.getSelectionModel().select(index+1);
 	}
 	
+	/**
+	 * Selects the previous Photo in the ListView
+	 * @throws IOException
+	 */
 	public void prevPhoto () throws IOException {
 		int index = photosListView.getSelectionModel().getSelectedIndex();
 		if (index-1 >=0) {
@@ -149,6 +201,9 @@ public class PhotosController extends Controller{
 		}
 	}
 	
+	/**
+	 * Helper method that populates the ListView with the current User's photos
+	 */
 	private void displayPhotos () {
 		ArrayList<Photo> photos = album.getPhotos();
 		obsList = FXCollections.observableArrayList();

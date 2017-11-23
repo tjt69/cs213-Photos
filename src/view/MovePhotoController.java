@@ -19,6 +19,11 @@ import util.Controller;
 import util.Photo;
 import util.User;
 
+/** 
+ * Controls the "Move_Photo" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class MovePhotoController extends Controller{
 	private User currUser;
 	private Album album;
@@ -41,6 +46,14 @@ public class MovePhotoController extends Controller{
 		}
 	};	
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 * @param user is the current User that's accessing this stage
+	 * @param album is the album that will the photo is being moved from
+	 * @param selectedPhoto is the photo that will be moved
+	 */
 	public void start (Stage primaryStage, User currUser, Album album, Photo selectedPhoto) {
 		this.primaryStage = primaryStage;
 		this.currUser = currUser;
@@ -50,6 +63,9 @@ public class MovePhotoController extends Controller{
 		displayAlbums();
 	}
 	
+	/**
+	 * Moves the selectedPhoto over to the User's selected Album
+	 */
 	public void movePhoto () {
 		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
 		if (selectedAlbum == null) {
@@ -91,6 +107,9 @@ public class MovePhotoController extends Controller{
 		closeWindow();
 	}
 	
+	/**
+	 * Helper method that populates the ListView with the User's albums
+	 */
 	private void displayAlbums () {
 		obsList = FXCollections.observableArrayList();
 		for (Album album : currUser.getAlbums()) {

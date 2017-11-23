@@ -13,6 +13,11 @@ import util.Controller;
 import util.StageManager;
 import util.User;
 
+/** 
+ * Controls the "Login" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class LoginController extends Controller{
 	@FXML Button signInButton;
 	@FXML Button quitButton;
@@ -21,13 +26,21 @@ public class LoginController extends Controller{
 	
 	private ArrayList<User> users;
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 */
 	public void start(Stage primaryStage) {
 		// This is so LoginConroller knows what the primaryStage is
 		// Not too sure if this is 'hacky' :p
 		this.primaryStage = primaryStage;
 	}
 	
-	// If 'signIn' is pressed, check the sign in to see if the information is valid
+	/**
+	 * Checks to see if the User inputed valid credentials and loads the appropriate stage
+	 * @param e the ActionEvent that prompted the button 
+	 */
 	public void checkSignIn (ActionEvent e)  {
 		// Get username/password combo from TextFields
 		String userName = userNameTextField.getText();

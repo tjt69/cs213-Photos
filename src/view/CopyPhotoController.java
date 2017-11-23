@@ -19,6 +19,11 @@ import util.Controller;
 import util.Photo;
 import util.User;
 
+/** 
+ * Controls the "Copy_Photo" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
 public class CopyPhotoController extends Controller{
 	private User currUser;
 	private Album album;
@@ -26,6 +31,7 @@ public class CopyPhotoController extends Controller{
 	private ObservableList<Album> obsList;
 	
 	@FXML ListView<Album> albumsListView;
+	
 	
 	public static Comparator<Album> AlbumComparator = new Comparator<Album>() {
 		public int compare(Album a1, Album a2) {
@@ -41,6 +47,14 @@ public class CopyPhotoController extends Controller{
 		}
 	};	
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 * @param user is the current User that's accessing this stage
+	 * @param album is the album that will the photo is being copied from
+	 * @param selectedPhoto is the photo that will be copied
+	 */
 	public void start (Stage primaryStage, User currUser, Album album, Photo selectedPhoto) {
 		this.primaryStage = primaryStage;
 		this.currUser = currUser;
@@ -50,6 +64,9 @@ public class CopyPhotoController extends Controller{
 		displayAlbums();
 	}
 	
+	/**
+	 * Copies the selectedPhoto over to the User's selected Album
+	 */
 	public void copyPhoto () {
 		Album selectedAlbum = albumsListView.getSelectionModel().getSelectedItem();
 		if (selectedAlbum == null) {
@@ -91,6 +108,9 @@ public class CopyPhotoController extends Controller{
 		closeWindow();
 	}
 	
+	/**
+	 * Helper method that populates the ListView with the User's albums
+	 */
 	private void displayAlbums () {
 		obsList = FXCollections.observableArrayList();
 		for (Album album : currUser.getAlbums()) {
