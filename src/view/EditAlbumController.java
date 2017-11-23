@@ -30,6 +30,11 @@ public class EditAlbumController extends Controller{
 	public void editAlbum () {
 		String albumName = albumNameTextField.getText();
 		selectedAlbum.setName(albumName);
+		for (Album album : currUser.getAlbums()) {
+			if (album.getName().equals(albumName)) {
+				errDialog("Cannot have two albums with the same name.");
+			}
+		}
 		
 		try {
 			// Deserialize storedUsers data and add new User
