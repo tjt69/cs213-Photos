@@ -15,16 +15,36 @@ import util.Controller;
 import util.Photo;
 import util.User;
 
+/** 
+ * Controls the "Add_Album" stage
+ * @author Travis Thiel
+ * @author Justin Valeroso
+ */
+
 public class AddAlbumController extends Controller{
 	private User currUser;
 	private ArrayList<Photo> result;
 	@FXML TextField albumNameTextField;
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 * @param user is the current User that's accessing this stage
+	 */
 	public void start(Stage primaryStage,User user) {
 		this.currUser = user;
 		this.primaryStage = primaryStage;
 	}
 	
+	/**
+	 * Initializes controller's private fields and sets up controller
+	 * for stage
+	 * @param primaryStage is the Stage that this controller controls
+	 * @param user is the current User that's accessing this stage
+	 * @param result is the ArrayList of Photos that are passed through this controller
+	 * that will be used to populate the added Album
+	 */	
 	public void start(Stage primaryStage,User user, ArrayList<Photo> result) {
 		this.currUser = user;
 		this.primaryStage = primaryStage;
@@ -32,6 +52,9 @@ public class AddAlbumController extends Controller{
 		
 	}
 	
+	/**
+	 * Adds an album to the User if the User inputs a valid album name
+	 */
 	public void addAlbum () {
 		String albumName = albumNameTextField.getText();
 		if (!albumName.isEmpty()) {
