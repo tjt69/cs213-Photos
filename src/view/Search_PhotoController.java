@@ -36,6 +36,7 @@ public class Search_PhotoController extends Controller {
 	
 	private ObservableList<Photo> obsList;
 	private ObservableList<Tag> tagsObsList;
+	private ObservableList<Tag> paraObsList = FXCollections.observableArrayList();
 	StageManager stageManager = new StageManager();
 	
 	@FXML ListView<Photo> display;
@@ -131,17 +132,35 @@ public class Search_PhotoController extends Controller {
 			return;
 		}
 		Tag tag = new Tag(t,v);
+		if(!paraObsList.contains(tag)) {
+			paraObsList.add(tag);
+			System.out.println(paraObsList.toString());
+		}
+		
 		for(Album i: currUser.getAlbums()) {
 				for(Photo p: i.getPhotos()) {
-					if(p.containsTag(tag)) {
+					if(p.containsTag(paraObsList.get(0))) {
 						obsList.add(p);
 					}
 					
 				}
 		}
+		
+		while(paraObsList.size()>1) {
+			for(int i = 1;i<paraObsList.size();i++){
+				for(Photo p: obsList) {
+					if(!p.containsTag(paraObsList.get(i))) {
+						obsList.remove(p);
+					}
+					
+				}
+			}
+		}
+		
 		if(obsList.isEmpty()) {
 			errDialog("No Photos containing specified tag");
 		}else {
+			DisplayTagParameters();
 			DisplaySearchResults();
 		}
 
@@ -216,6 +235,24 @@ public class Search_PhotoController extends Controller {
     	    	}
     	    }
     	});		
+		
+	}
+	
+	private void DisplayTagParameters() {
+		para_ListView.setItems(paraObsList);
+		
+		para_ListView.setCellFactory(param -> new ListCell<Tag>() {
+			@Override
+			public void updateItem (Tag t, boolean empty) {
+				super.updateItem(t, empty);
+				if (empty) {
+					setText (null);
+				}
+				else {
+					setText(t.toString());
+				}
+			}
+		});
 		
 	}
 }
